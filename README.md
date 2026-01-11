@@ -18,11 +18,12 @@ This aspect refers to the composition using distinct, fundamental components arr
 When combined, the phrase suggests a design that is both deeply meaningful and logically structured ("semantically themed") and built up from basic components arranged in an organised hierarchy ("layered elemental"). This approach likely aims for a result that is intuitive to understand, visually rich, and structurally sound."
 
 CSS with STyLE.
+
+---
+
+> **NOTE:** If you are using [RAMP](https://github.com/mrenyard/RAMP) to drive your website/application along with [`Web-Project-Managment-Tools`](https://github.com/mrenyard/Web-Project-Managment-Tools) as recommended by default then you will NOT need to read beyond this point.
 ## GETTING STARTED WITH STyLE (independently of RAMP).
-
-> **NOTE:** If you are using RAMP to drive your website/application then you will not need to do this.
-
-To use STyLE simply place these contents in a `style` directory folder within the root of your web directory, most commonly within an `assets` folder.
+To use STyLE simply place the contents of this GitHub repository within a `style` folder below the root of your web directory, most commonly within an `assets` folder.
 ```
   |
   +-- public_html       (website root folder)
@@ -49,19 +50,35 @@ To use STyLE simply place these contents in a `style` directory folder within th
   |     +-- media
   --- ramp.ini        (local initialization file)
 ```
-Using PHP then copy the below code into a file named `head.php` to save at the root of your website.
+## Development Mode Switching
+For development mode switching that breaks down into individual CSS files for easier debugging as will as injecting scratch CSS files to 'Cascade' overwrite existing live CSS, you will want to have some kind of server-side code like the below PHP.
+### Using PHP.
+Copy the below PHP code into a file named `head.php` to save at the root of your website.
 ```php
+<?php
+/**
+ * Determine if we are in development mode based off the subdomain being 'dev'
+ * and include individual CSS files if so, otherwise include the combined CSS file.
+ * Also allow for scratch CSS files to be included via a GET parameter in dev mode.
+ */
+$DEV_MODE = (explode('.', $_SERVER['HTTP_HOST'])[0] == 'dev');
+if ($DEV_MODE && isset($_GET['scratch'])) {
+  $SCRATCH__CSS = explode('|', $_GET['scratch']);
+  unset($_GET['scratch']);
+}
 $cssManifest = $_SERVER["DOCUMENT_ROOT"].'/assets/style/import/css.manifest';
-if (\ramp\SETTING::$DEV_MODE && file_exists($cssManifest)) {
+if ($DEV_MODE && file_exists($cssManifest)) {
   $STYLE_SERVER = '//'.$_SERVER["HTTP_HOST"].'/assets/style';
   foreach (file($cssManifest) as $line) {
     $line = trim($line);
     if((strpos($line,';') !== 0) && ( $line !== '')) {
+
 ?>    <link rel="stylesheet" href="<?=$STYLE_SERVER; ?>/import/<?=$line; ?>.css">
-<?php }} if (isset(\ramp\SETTING::$SCRATCH__CSS)) { foreach (\ramp\SETTING::$SCRATCH__CSS as $cssScratchFile) { ?>
+<?php }} if (isset($SCRATCH__CSS)) { foreach ($SCRATCH__CSS as $cssScratchFile) { ?>
     <link rel="stylesheet" href="<?=$STYLE_SERVER; ?>/scratch/<?=$cssScratchFile; ?>.css">
 <?php }} ?>
     <link rel="stylesheet" href="<?=$STYLE_SERVER; ?>/import/icons.css.php">
+    <script src="/assets/func/extlibs/modernizr-custom.js"></script>
 <?php } else {
 
   $STYLE_SERVER = '//style.'.$_SERVER["HTTP_HOST"];
@@ -76,9 +93,8 @@ if (\ramp\SETTING::$DEV_MODE && file_exists($cssManifest)) {
     }
   }
 ?>    <link rel="stylesheet" href="<?=$STYLE_SERVER; ?>/combined/<?=$mostRecentDate; ?>.css">
-    <!-- TODO:mrenyard: Auto add into combined/YYYY-mm-DD.css -->
     <link rel="stylesheet" href="<?=$STYLE_SERVER; ?>/import/icons.css.php">
-    <script src="<?=$FUNC_SERVER; ?>/extlibs/modernizr-custom.js"></script>
+    <script src="/assets/func/extlibs/modernizr-custom.js"></script>
 <?php } ?>
 ```
 then add as a PHP include in the head of all web pages that are to use STyLE CSS.
