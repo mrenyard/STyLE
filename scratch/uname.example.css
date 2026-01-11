@@ -1,0 +1,115 @@
+/**
+ * [author] SCRATCH
+ *
+ * Default CSS Manifest modified from Snook's
+ * Scalable and Modular Architecture for CSS
+ * http://smacss.com/book/
+ *
+ * NOTE: Each section follows alphabetically in line with Content style ordering.
+ *
+ *  All imported/exported files should follow the following naming convention:
+ *    section-subsection
+ *  i.e.
+ *    base.css
+ *    base-form.css
+ *    font.css
+ *    font-special.css
+ *    layout.css
+ *    layout-navigation.css
+ *    module-icon-list.css
+ *    module-button-link.css
+ *    theme-solent-red.css
+ *    theme-icons.css
+ *    state.css
+ *    state-menu.css
+ *    vendor.css
+ */
+/* ===============================================================================================
+  BASE   - Primary HTML elements such as the body, form tags, links...
+  ============================================================================================ */
+
+
+/* =============================================================================================
+  SPACING - Whitespace, Spacing Base Font Size, based on viewport.
+  ============================================================================================ */
+
+   
+/* ==============================================================================================
+  LAYOUT  - How the page is divided into sections including headers, footers, sidebars...
+         example: screen-width:1024/16px : @media only screen and (min-width: 64em) { }
+  ============================================================================================ */
+
+
+/* ==============================================================================================
+  MODUALS - Discrete, reusable, modular components, usually denoted with a module class name
+         e.g. product lists, contact forms...
+  ============================================================================================ */
+
+
+/* ==============================================================================================
+  THEMES  - Recurring colour palette for text, links, buttons and background-images...
+  ============================================================================================ */
+
+
+@media (prefers-color-scheme: dark) {
+  body { color: rgb(225 225 225); }
+  #main {
+    background-color: rgb(100 155 100);
+    --post-highlight-color: rgb(100 155 100);
+  }
+  :root {
+    --text-color: rgb(10 10 10);
+    --primary-color: rgb(0 128 0);
+    --primary-contrast-color: rgb(255, 255, 255);
+    --secondary-color: rgb(0 99 0);
+    --darker-primary-color: rgb(0 33 0);
+    --darker-primary-contrast-color: rgb(200 200 200);
+    --selection-txt-color: rgb(255 255 255);
+    --selection-bg-color: rgb(0 128 0);;
+    --accent-color: rgb(0 50 0 / .75);
+
+    --error-primary-color: rgb(255,0,0);
+    --error-contrast-color: rgb(255,255,255);
+    --error-primary-low-color: rgb(255,50,50);
+    --error-primary-high-color: rgb(140,0,0);
+    --checked-primary-color: rgb(0, 128, 0);
+
+    --button-glow-color: rgb(255 255 155 / .75);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body { color: rgb(33 33 33); }
+  #main {
+    background-color: rgb(255 255 255);
+  }
+  :root {
+    --text-color: rgb(10,10,10);
+    --primary-color: green;
+    --primary-contrast-color: white;
+    --secondary-color: rgb(0, 99, 0);
+    --darker-primary-color: rgb(0 33 0);
+    --darker-primary-contrast-color: rgb(200 200 200);
+    --selection-txt-color: white;
+    --selection-bg-color: green;
+    --accent-color: rgb(200 255 200 / .75);
+    --button-glow-color: rgb(255 255 155 / .75);
+  }
+}
+
+/* ==============================================================================================
+  STATE  - How thing may change based of user interaction or through JavaScript DOM changes,
+         e.g. errors, hidden, expanded, active
+  ============================================================================================ */
+
+
+@keyframes --fade-out {
+  from { opacity: .9; }  
+  to { opacity: .1; }  
+}
+
+
+/* ==============================================================================================
+  VENDOR  - Third party code over which you have no control, e.g. Normalize.css, Bootstrap.css
+  ============================================================================================ */
+
