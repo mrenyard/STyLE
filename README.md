@@ -2,7 +2,6 @@
 Inspired by RAMP's semantic HTML Template patterns as its base, STyLE works from the premise that semantic web documents and application have all the necessary elements (hooks) for a fully fledged CSS framework. That any content or data structure created with a certain set of principles and conventions can be visually displayed and manipulated with CSS to produce a variety of visually pleasing, user friendly, user centric designs.
 
 ### AIs response to the term 'Semantically Themed & Layered Elemental'...
-
 > "Semantically themed & Layered elemental" describes a design approach that combines the meaningful organisation of content with a visually and structurally rich composition.
 > ## Semantically Themed
 > This concept focuses on the meaning and context of elements within a system, ensuring they relate in a logical and consistent way.
@@ -49,7 +48,7 @@ To use STyLE simply place the contents of this GitHub repository within a `style
   --- ramp.ini        (local initialization file)
 ```
 ## Development Mode Switching
-For development mode switching that breaks down into individual CSS files for easier debugging as will as injecting scratch CSS files to 'Cascade' overwrite existing live CSS, you will want to have some kind of server-side code like the below PHP.
+For development mode switching that breaks down into individual CSS files for easier debugging (as listed in `import/css.manifest`) as will as injecting scratch CSS files to 'Cascade' overwrite existing live CSS, you will want to have some kind of server-side code like the below PHP.
 ### Using PHP.
 Copy the below PHP code into a file named `head.php` to save at the root of your website.
 ```php
