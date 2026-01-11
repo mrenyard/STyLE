@@ -48,7 +48,7 @@ To use STyLE simply place the contents of this GitHub repository within a `style
   --- ramp.ini        (local initialization file)
 ```
 ## Development Mode Switching
-For development mode switching that breaks down into individual CSS files for easier debugging (as listed in `import/css.manifest`) as will as injecting scratch CSS files to 'Cascade' overwrite existing live CSS, you will want to have some kind of server-side code like the below PHP.
+For development mode switching that breaks down into individual CSS files for easier debugging (as listed in `import/css.manifest`) as well as injecting scratch CSS files to 'Cascade' overwrite existing live CSS, you will want to have some kind of server-side code like the below PHP.
 ### Using PHP.
 Copy the below PHP code into a file named `head.php` to save at the root of your website.
 ```php
@@ -108,4 +108,3 @@ then add as a PHP include in the head of all web pages that are to use STyLE CSS
   </body>
 </html>
 ```
-
