@@ -16,7 +16,7 @@ body > main {
   > form:only-child {
     padding: .125rem;
     display: grid; column-gap: .125rem;
-    grid-template-columns: repeat(5, 13.75rem);
+    grid-template-columns: repeat(5, 15rem);
     background-color: rgb(200, 200, 200);
     margin-bottom: 3rem;
     > .wide { grid-column: auto / span 2; }
@@ -696,19 +696,19 @@ body > main {
       <div class="editor">
         <fieldset class="toolbar">
           <legend>Editor Toolbar (writer):</legend>
-          <div class="icon button field" title="Emphasize text (italic)">
+          <div class="icon button field" title="Emphasize text [italic](*)">
             <button id="person:new:blog:italic" type="button"></button>
             <label for="person:new:blog:italic">Italic</label>
           </div>
-          <div class="icon button field" title="Strongly emphasize text (bold)">
+          <div class="icon button field" title="Strongly emphasize text [bold](**)">
             <button id="person:new:blog:bold" type="button"></button>
             <label for="person:new:blog:bold">Bold</label>
           </div>
-          <div class="icon button field" title="Strike through text">
+          <div class="icon button field" title="Strike through text (~~)">
             <button id="person:new:blog:s" type="button"></button>
             <label for="person:new:blog:s">Strike</label>
           </div>
-          <div class="icon button field" title="Mark as quote">
+          <div class="icon button field" title='Mark as quote (")'>
             <button id="person:new:blog:q" type="button"></button>
             <label for="person:new:blog:q">Quote</label>
           </div>
@@ -720,20 +720,20 @@ body > main {
             <button id="person:new:blog:sub" type="button"></button>
             <label for="person:new:blog:sub">Sub</label>
           </div>
-          <div class="icon button field" title="Mark as abbreviation or acronym">
+          <div class="icon button field" title="Mark as abbreviation or acronym [ABBR](*[)">
             <button id="person:new:blog:abbr" type="button"></button>
             <label for="person:new:blog:abbr">ABBR</label>
           </div>
-          <div class="icon button field" title="Mark as code (inline)">
+          <div class="icon button field" title="Mark as code [inline](`)">
             <button id="person:new:blog:code" type="button"></button>
             <label for="person:new:blog:code">code</label>
             <!-- select from: code:data-lang=, kbd or samp -->
           </div>
-          <div class="icon button field" title="Unordered list of items (bullet)">
+          <div class="icon button field" title="Unordered list of items [bullet](- or * )">
             <button id="person:new:blog:list-unordered" type="button"></button>
             <label for="person:new:blog:list-unordered">-List</label>
           </div>
-          <div class="icon button field" title="Ordered list of items (numbered)">
+          <div class="icon button field" title="Ordered list of items [numbered](1.)">
             <button id="person:new:blog:list-ordered" type="button"></button>
             <label for="person:new:blog:list-ordered">#List</label>
           </div>
@@ -741,11 +741,11 @@ body > main {
             <button id="person:new:blog:footnote" type="button"></button>
             <label for="person:new:blog:footnote">Note</label>
           </div>
-          <div class="icon button field" title="Add hyperlink">
+          <div class="icon button field" title="Add hyperlink [URL]([...]()">
             <button id="person:new:blog:link" type="button"></button>
             <label for="person:new:blog:link">Link</label>
           </div>
-          <div class="icon button field" title="Add media (image, video, )">
+          <div class="icon button field" title="Add media (image, video, audio) (![)">
             <button id="person:new:blog:figure" type="button"></button>
             <label for="person:new:blog:figure">Media</label>
           </div>
@@ -753,18 +753,18 @@ body > main {
             <select id="person:new:blog:level">
               <option value="p" selected>Paragraph (normal)</option>
               <optgroup label="Headings">
-                <option value="h2">Heading</option>
-                <option value="h3">Sub Heading</option>
-                <option value="h4">Sub sub Heading</option>
+                <option value="h2"># Heading</option>
+                <option value="h3">## Sub Heading</option>
+                <option value="h4">### Sub sub Heading</option>
               </optgroup>
               <optgroup label="Lists">
-                <option value="ul-li">Unordered List (Bullet)</option>
-                <option value="ol-li">Ordered List (Numbered)</option>
+                <option value="ul-li">Unordered List [Bullet](- or * )</option>
+                <option value="ol-li">Ordered List [Numbered](1.)</option>
               </optgroup>
               <optgroup label="Feature">
-                <option value="blockquote">Blockquote</option>
-                <option value="table">Tabular Data</option>
-                <option value="pre-code">Specially Formatted Text (code)</option>
+                <option value="blockquote">Blockquote (>)</option>
+                <option value="table">Tabular Data (|\n|)</option>
+                <option value="pre-code">Specially Formatted Text [code](```)</option>
               </optgroup>
             </select>    
             <label for="person:new:blog:level">Level</label>
@@ -772,7 +772,7 @@ body > main {
         </fieldset>
         <textarea spellcheck="true"></textarea>
         <output contenteditable="true" spellcheck="true">
-          <p>Some texxt here!</p>
+          <p>Some text here!</p>
           <ul>
             <li>...</li>
           </ul>

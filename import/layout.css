@@ -87,7 +87,7 @@ body > nav {
   position: fixed; z-index: 1;
   top: .375rem; right: .375rem;
   width: 2.5rem; height: 2.5rem;
-} body > *:not(header, nav, main, article, script) {
+} body > *:not(dialog, header, nav, main, article, script) {
   display: grid; grid-template-columns: subgrid;
 } body > main, body > aside, body > article {
   grid-area: main; grid-row: auto;
