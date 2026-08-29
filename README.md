@@ -1,7 +1,9 @@
-# STyLE - A Semantically Themed & Layered Elements based CSS Framework.
-Inspired and reworked for modern CSS from Snook's [Scalable and Modular Architecture](https://smacss.com/book/) and using the same semantic HTML patterns as used for [RAMP][https://github.com/mrenyard/RAMP], STyLE enforces the premise that semantic web documents and applications have all the necessary elements (hooks) for a fully fledged CSS framework. Through its layered approach of mangaging & ordering StyleSheets (CSS rules), STyLE provides a variety of visually pleasing, user friendly and user centric UX components, layouts, patterns and web features.
+# STyLE - A Semantically Targeted & Layered Elements based CSS Framework.
+Inspired and reworked for modern CSS from Snook's [Scalable and Modular Architecture](https://smacss.com/book/) and using the same semantic HTML patterns as used for [RAMP][https://github.com/mrenyard/RAMP), STyLE is both a philosophy (the Semantic Targeting of Layered Elements Philosophy) with a set of tools, rules and guidelines, as well as a CSS framework (Semantically Targeted & Layered Elements based CSS Framework) providing a base set of Design Patterns, Layouts, UX components, Modules and Web Elements for use with a variety of web based project.
 
-CSS with STyLE.
+## CSS with STyLE - a Philosophy build around the Semantic Targeting of Layered Elements.
+STyLE based CSS consists of...
+
 ## GETTING STARTED WITH STyLE (independently of RAMP).
 > **NOTE:** If you are using [RAMP](https://github.com/mrenyard/RAMP) to drive your website/application along with [`Web-Project-Managment-Tools`](https://github.com/mrenyard/Web-Project-Managment-Tools) as recommended by default then you will NOT need to read beyond this point.
 
@@ -20,8 +22,9 @@ To use STyLE simply place the contents of this GitHub repository within a `style
   |     |  |  +-- base.css
   |     |  |  +-- css.manifest
   |     |  |  +-- icons.css.php
+  |     |  |  +-- elemet-[sub-style].css
   |     |  |  +-- layout-[sub-style].css
-  |     |  |  +-- modual-[sub-style].css
+  |     |  |  +-- module-[sub-style].css
   |     |  |  +-- ...
   |     |  +-- scratch
   |     |  +-- type
@@ -81,7 +84,7 @@ if ($DEV_MODE && file_exists($cssManifest)) {
 ```
 then add as a PHP include in the head of all web pages that are to use STyLE CSS.
 ```html
-<html class="no-js" lang="en">
+<html class="no-js" lang="zxx">
   <head>
     <meta charset="utf-8">
     <title>[Page Title]</title>
