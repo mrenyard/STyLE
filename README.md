@@ -1,8 +1,10 @@
-# STyLE - A Semantically Targeted & Layered Elements based CSS Framework.
-Inspired and reworked for modern CSS from Snook's [Scalable and Modular Architecture](https://smacss.com/book/) and using the same semantic HTML patterns as used for [RAMP][https://github.com/mrenyard/RAMP), STyLE is both a philosophy (the Semantic Targeting of Layered Elements Philosophy) with a set of tools, rules and guidelines, as well as a CSS framework (Semantically Targeted & Layered Elements based CSS Framework) providing a base set of Design Patterns, Layouts, UX components, Modules and Web Elements for use with a variety of web based project.
+# STyLE - a Semantic Templates with Layered Elements based CSS Framework
+Based on the same semantic HTML patterns as used for [RAMP](https://github.com/mrenyard/RAMP) and inspired by Snook's [Scalable and Modular Architecture](https://smacss.com/book/), reworked for modern CSS (Baseline 2024). STyLE is a pure CSS Framework using modern features and standards to target a range of use cases. As both an architecture (the Semantically Templated and Layered Elements Architecture) with a set of design patterns, HTML templates, CSS rules & guidelines to help inform and manage your CSS, and a CSS framework (The Semantic Templates & Layered Elements based CSS Framework) STyLE provides a base set of Layouts, UX components, Modules and Web Elements for use with a variety of web based projects.
 
-## CSS with STyLE - a Philosophy build around the Semantic Targeting of Layered Elements.
-STyLE based CSS consists of...
+## The Semantically Templated and Layered Elements Architecture & Philosophy
+A STyLE architecture consists of...
+
+CSS with STyLE.
 
 ## GETTING STARTED WITH STyLE (independently of RAMP).
 > **NOTE:** If you are using [RAMP](https://github.com/mrenyard/RAMP) to drive your website/application along with [`Web-Project-Managment-Tools`](https://github.com/mrenyard/Web-Project-Managment-Tools) as recommended by default then you will NOT need to read beyond this point.
@@ -22,7 +24,7 @@ To use STyLE simply place the contents of this GitHub repository within a `style
   |     |  |  +-- base.css
   |     |  |  +-- css.manifest
   |     |  |  +-- icons.css.php
-  |     |  |  +-- elemet-[sub-style].css
+  |     |  |  +-- element-[sub-style].css
   |     |  |  +-- layout-[sub-style].css
   |     |  |  +-- module-[sub-style].css
   |     |  |  +-- ...
