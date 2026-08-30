@@ -1,0 +1,209 @@
+/**
+ * element-field.css
+ *
+ * Ordered and structured according to STyLEs published conventions.
+ */
+/* ===============================================================================================
+   ELEMENTS - Hyper small frequalty used components such as form fields, controls and buttons.
+   ============================================================================================ */
+
+fieldset:has( .field ) {
+  > legend { width: 100%; margin: 0; padding: 0 .25rem; }
+  > .field { margin: .0625rem -.125rem .0625rem 0; }
+}
+
+/** .field **/
+.field {
+  position: relative;
+  display: inline-block;
+  margin: .0625rem -.125rem .0625rem 0;
+  padding: 0;
+  min-width: 5.625rem; /*90*/
+  max-width: 100%; height: 3rem;
+  vertical-align: bottom;
+  outline: none 0;
+  /** default input **/
+  > input, > select, > textarea, > button {
+    width: 100%; height: 2.125rem;
+    margin-top: .875rem;
+    outline: none 0; border: none;
+    background-color: transparent;
+  }
+  /** label **/
+  > label:first-child, > legend:first-child {
+    display: block; width: 100%; z-index: 2;
+    position: absolute; top: 0; left: 0;
+    margin-block: 0; padding-inline: .5rem;
+    overflow: hidden; text-wrap: nowrap;
+    text-overflow: ellipsis;
+    transition: all .2s ease-in-out;
+    cursor: default;
+    /** default BG **/
+    background-color: rgb(255 255 255);
+    /** label COVERED **/
+    font-size: 1.25rem; line-height: 3rem; height: 3rem;    
+  } /** label OPEN **/
+  &.flag > legend, &.meter > label,
+  &.error > :is(label:first-child, legend),
+  &:has( input:open ) > label:first-child, 
+  &:has( input[value] ) > label:first-child,
+  &:has( select > option:first-child ~ option[selected] ) > label:first-child,
+  &:has( input[checked] ) > legend,
+  &:focus-within > :is(label:first-child, legend),
+  &:has( :user-invalid ) > :is(label:first-child, legend),
+  &:has( :user-valid ) > :is(label:first-child, legend) {
+     padding-inline: .125rem; font-size: .75rem;
+     line-height: 1rem; height: 1rem;
+  }
+  /** required (asterix) **/
+  &.required {
+    &::after {
+      content: '\2731';
+      display: block;
+      position: absolute; z-index: 3;
+      top: 0; right: 0;
+      width: auto; height: 1rem; line-height: 1rem;
+      padding: 0 .25rem .125rem 0;
+      text-align: right; font-size: .6rem;
+    }
+    > :is(label:first-child, legend)::after { display: none; }
+  }
+  /** .hint (OFF PAGE) **/
+  > .hint {
+    position: fixed; z-index: 100;
+    right: var(--popup-right, 3rem);
+    bottom: -33%; left: 0;
+    height: fit-content; max-height: 33%;
+    width: fit-content; max-width: 40em;
+    text-wrap: pretty;
+    line-height: 1.375rem;
+    overflow-y: auto;
+    padding: var(--inline-spacing, 1rem);
+    background-color: var(--complementary-canvas, white);
+    border: solid;
+    border-width: .75rem .75rem 0 0;
+    border-color: var(--error-color, red);
+    box-shadow: .5rem .5rem 1rem rgb(0 0 0 / .5);
+    transition: bottom 1s ease-out;
+  }
+  /** add down arrow to select fields **/
+  &.select-many, &:has( select ) { 
+    appearance: none;
+    background-image:
+      linear-gradient(45deg, transparent 50%, var(--primary-color, black) 50%),
+      linear-gradient(135deg, var(--primary-color, black) 50%, transparent 50%),
+      linear-gradient(to right, transparent, transparent);
+    background-position:
+      calc(100% - .95rem) 1.75rem,
+      calc(100% - .45rem) 1.75rem,
+      100% 100%;
+    background-size:
+      .5rem .51rem,
+      .51rem .51rem,
+      2rem 2rem;
+    background-repeat: no-repeat;
+    &:has( select:first-child ) {
+      background-position:
+        calc(100% - .95rem) .75rem,
+        calc(100% - .45rem) .75rem,
+        100% 100%;
+    }
+    > select { appearance: none; }
+  }
+  /** .error **/
+  &.error, &:has( input:user-invalid ) {
+    /** error label **/
+    > label:first-child, > legend {
+      background-color: var(--error-color, red);
+      color: var(--error-contrast, white);
+    }    
+    /** error asterix **/
+    &.required::after { color: white; }
+  }
+  /** ACTIVE FIELDS **/
+  &:focus-within {
+    outline: solid var(--active-accent, rgb(0, 60, 255)) .125rem;
+    /** focus .error **/
+  }
+}
+.no-js .field > .ind { display: none; }
+
+.field.meter > label:first-child + meter {
+  width: calc(100% - .75rem);
+  margin-inline: .375rem;
+}
+
+.field.select-many {
+  > ul, > ol {
+    position: absolute;
+    top: 1.1rem; left: 0;
+    padding: 0; list-style: none;
+    border-radius: .25rem;
+    width: 15rem; height: 2rem; overflow: hidden;
+    &::before {
+      display: block; height: 2.1rem;
+      content: "-- " attr(data-placeholder);
+      padding-inline: .5rem;
+    }
+    &:has( input:checked )::before {
+      content: "-- " attr(data-placeholder-selected) ":";
+    }
+    > li {
+      z-index: -1;
+      position: relative;
+      text-wrap: nowrap;
+      width: 100%; height: auto;
+      padding: .125rem .5rem .25rem;
+      background-color: white;
+      box-shadow: rgb(0 0 0 / .25) .1rem .1rem .3rem;
+    }
+  }
+  &:focus-within {
+    > ul, ol {
+      overflow: visible;
+      width: fit-content; height: auto;
+      > li {
+        z-index: 4;
+        transition-property: z-index;
+        transition-delay: .3s;
+        transition-duration: 0;
+      }
+    }
+  }
+}
+
+.field.flag {
+  > label {
+    position: absolute; top: 1.125rem; left: 0;
+    padding: .25rem 1.875rem .5rem .5rem;
+    max-width: 99.5%; height: 1.5rem;
+    overflow: hidden; text-overflow: ellipsis;
+  }
+  &:focus-within, &:hover {
+    > label {
+      height: auto; z-index: 4;
+      background-color: white;
+      border: solid rgb(0 0 0 / .25) .0625rem; border-radius: .1875rem;
+      box-shadow: .0625rem .0625rem .125rem rgb(0 0 0 / .125);
+    }
+  }
+}
+
+.field { min-width: 100%; }
+@media screen and (min-width: 26rem) {
+  .field.color, .field.time, .field.number { min-width: 5.625rem; }
+  .field.number:has( input[step="0.01"] ),
+  .field.week, .field.month { min-width: 7.5rem; } /*120*/
+  .field.date { min-width: 9.375rem; } /*150*/
+  .field.tel, .field.password, .field.select { min-width: 11.25rem; } /*180*/
+  .field.select-many, .field.text, .field.flag,
+  .field.datetime-local { min-width: 13.125rem; } /*210*/
+  .field.range { min-width: 13.5rem; } /*216*/
+  .field.range.percent { min-width: 15rem; } /*240*/
+  .field.range.special { min-width: 16.875rem; } /*270*/
+  .field.email { min-width: 22.5rem; } /*360*/
+} @media screen and (min-width: 32rem) {
+  .field.search { min-width: 26.25rem; } /*420*/
+} @media screen and (min-width: 40rem) {
+  .field.url { min-width: 34.375rem; } /*550*/
+}

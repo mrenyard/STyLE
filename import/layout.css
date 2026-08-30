@@ -1,11 +1,7 @@
 /**
  * layout.css
  *
- * Default CSS Manifest modified from Snook's
- * Scalable and Modular Architecture for CSS
- * http://smacss.com/book/
- *
- * HTML5 Structured layout defualts
+ * Ordered and structured according to STyLEs published conventions.
  */
 /* ==============================================================================================
   LAYOUT  - How the page is divided into sections including header, main, aside, nav, footer.
@@ -18,7 +14,6 @@
   --inline-spacing: .25rem;
   --header-height: 3.25rem;
   --hero-height: 80vh;
-  --popup-right: 3.25rem;
   @media  screen and (min-width: 32rem) { /*512px*/
   --inline-spacing: .5rem;
   } @media screen and (orientation: landscape) {
@@ -48,10 +43,6 @@ body.data-page, body:has( > header.hero ) {
 }
 
 body {
-  /* position: absolute; z-index: 1;
-  top: 0; right: 0; left: 0;
-  overflow-x: hidden; */
-
   display: grid;
   grid-template-columns:
     [full-start] 0
@@ -80,20 +71,16 @@ body {
       auto [app-end]
     0 [full-end];
   }
+  margin: 0; max-width: 100vw;
 }
 
-
-body > nav {
-  position: fixed; z-index: 1;
-  top: .375rem; right: .375rem;
-  width: 2.5rem; height: 2.5rem;
-} body > *:not(dialog, header, nav, main, article, script) {
+body > *:not(dialog, header, main, nav, article, script) {
   display: grid; grid-template-columns: subgrid;
 } body > main, body > aside, body > article {
   grid-area: main; grid-row: auto;
 } body > :is(main, article):has( > form:only-child ) {
   grid-area: app; grid-row: auto;
-} body > header, body > footer {
+} body > header, body > footer, body > nav {
   grid-area: full; grid-row: auto;
 }
 body > header > * { grid-area: app; grid-row: auto; }
@@ -104,7 +91,7 @@ body > footer > a:last-child {
 }
   
 @media screen and (min-width: 43rem) { /* 688px */
-  body > main { grid-column: main-left / span 3; }
+  body > main { grid-column: main-left / span 2; }
   body > main:has( ~ aside ), body > aside, body > article,
   body > aside > footer, body > aside > header {
     grid-column: main-left / span 2; grid-row: auto;
@@ -195,7 +182,7 @@ article { margin-bottom: var(--block-spacing);
 
 /** Full breakout background **/
 body > main {
-  position: relative; z-index: 1;
+  position: relative;
   padding-bottom: 2rem;
   color: var(--text-color, black);
   --post-highlight-color: var(--complementary-canvas, white);

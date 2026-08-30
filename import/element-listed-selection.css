@@ -1,0 +1,62 @@
+/**
+ * element-listed-selection.css
+ *
+ * Ordered and structured according to STyLEs published conventions.
+ */
+/* ===============================================================================================
+   ELEMENTS - Hyper small frequalty used components such as form fields, controls and buttons.
+   ============================================================================================ */
+
+/* fieldset:has( fieldset.list ) { padding: 0; } */
+/* fieldset > fieldset.list { margin: 0; } */
+fieldset:has( fieldset.list ) > legend { margin-inline: 0; }
+/* fieldset:has( fieldset.list ) { padding: 0; } */
+
+.list:is(.checkbox, .radio) {
+  position: relative;
+  display: inline-block;
+  margin-right: -.125rem;
+  padding: 0;
+  > legend {
+    display: block; padding: 0 1rem 0 .25rem;
+    text-wrap: nowrap; text-overflow: ellipsis;
+    background-color: white;
+  }
+  &.required {
+    > legend {
+      margin: 0;
+      &::after { content: none; }
+    }
+    &::after {
+      content: '\2731';
+      display: block;
+      position: absolute; z-index: 3;
+      top: -1.75rem; right: 0;
+      width: auto; height: 1rem; line-height: 1rem;
+      padding: 0 .25rem .125rem 0;
+      text-align: right; font-size: .6rem;
+    }
+  }
+  > :is(ol, ul) > li {
+    /* padding-left: .5rem; */
+    > input {
+      margin-left: .25rem;
+      + label {
+        width: 100%;
+        float: right;
+        margin-left: -1.5rem;
+        padding-inline: 1.5rem;
+        overflow: hidden;
+        text-wrap: nowrap; text-overflow: ellipsis;
+      }
+    }
+  }
+  max-width: 50rem;
+  min-width: 100%;
+} @media screen and (min-width: 53rem) {
+  .list:is(.checkbox, .radio) { min-width: calc(50% - .0525rem); } /*420*/
+} @media screen and (min-width: 73rem) {
+  .list:is(.checkbox, .radio) { min-width: calc(33.33% - .125rem); } /*420*/
+} @media screen and (min-width: 95rem) {
+  .list:is(.checkbox, .radio) { min-width: calc(25% - .125rem); } /*420*/
+}

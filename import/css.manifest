@@ -1,26 +1,55 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;Default CSS Manifest base on Snook's
-;Scalable and Modular Architecture for CSS
-;http://smacss.com/book/
+;CSS Manifest for use by ../make.php,
+;ordered and structured according to
+;STyLEs published conventions.
+;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;Primary HTML elements such as the body, form tags, links...
+;BASE     - Primary HTML elements such as the body, form tags, links...
+;=============================================================================================
 base
+base-form
 
-;How the page is divided into sections including headers, footers, sidebars...
+;ELEMENTS - Hyper small frequalty used components such as form fields, controls and buttons.
+;=============================================================================================
+element-field
+
+
+;LAYOUT   - How the page is divided and aranged from sections, headers, footers, aside etc.
+;=============================================================================================
 layout
-layout-form-data
 
-;Discrete, reusable, modular components, usually denoted with a module class name e.g. navigation bars, product lists, contact forms...
-modual-stickyfoot-footnotes
-modual-article-more-overlay
-modual-page-nav-search
-modual-site-navigation
+;moduleS  - Discrete, reusable, modular components, usually denoted with a module class name.
+;=============================================================================================
+module-error-tips
+module-stickyfoot-footnotes
+module-article-more-overlay
+;module-page-nav-search
+;module-site-navigation
 
-;Reoccuring colour palete for text, links, buttons and background-images...
-;theme-wireframe
 
-;How thing may change based of user interaction or through JavaScript DOM changes, e.g. errors, hidden, expanded, active state etc...
+;SPACING  - Whitespace relative to viewport (base font size), or user preference.
+;=============================================================================================
+;spacing-adaptive
+;spacing-compact
+;spacing-comfortable
+;spacing-generous
+
+
+;STATE    - How thing may change based of user interaction or through JavaScript DOM changes,
+;=============================================================================================
 state-form-controls
 
-;
-;print
+
+
+;THEMES   - Recurring colour palette, border-raduis and background-images (DARK & LIGHT)
+;=============================================================================================
+;theme-wireframe
+
+
+;VENDOR  - Third party code over which you have no control, e.g. Normalize.css, Bootstrap.css
+;=============================================================================================
+
+
+;Z-AXIS? - 3D space management (temporarily added layer to ascertain true value)
+;=============================================================================================
+z-space.css

@@ -1,0 +1,275 @@
+/**
+ * element-file-upload.css
+ *
+ * Ordered and structured according to STyLEs published conventions.
+ */
+/* ===============================================================================================
+   ELEMENTS - Hyper small frequalty used components such as form fields, controls and buttons.
+   ============================================================================================ */
+
+fieldset:has( .file ) > legend {
+  width: 100%; margin: 0; padding: 0 .25rem;
+}
+
+/** .file **/
+.file {
+  display: inline-block;
+  position: relative;
+  min-width: 15rem; /*240*/
+  margin: .0625rem -.125rem .0625rem 0;
+  padding: 0;
+  vertical-align: bottom;
+  background-color: var(--primary-color, rgb(190,190,190));
+  outline-color: var(--active-accent, rgb(0, 60, 255));
+  transition: all .2s ease-in-out;
+  top: 0; height: 3rem;
+  > legend:first-child {
+    display: block; z-index: 1;
+    position: absolute;
+    top: 0; right: 0; left: 0;
+    cursor: default;
+    background-color: white;
+    transition: all .2s ease-in-out;
+    height: 3rem;
+    &:has( + .preview-link ) {
+      height: 1rem;
+      font-size: .75rem;
+      line-height: 1.125rem;
+      padding-inline: .25rem;
+    }
+    &::after { display: none; }
+    font-size: 1.25rem;
+    line-height: 3rem;
+    padding-inline: .5rem;
+  }
+  > .preview-link {
+    display: block;
+    position: absolute;
+    bottom: 0; left: 0;
+    padding-inline: 2.25rem 0;
+    width: 100%; height: 2rem;
+    line-height: 1.75rem;
+    text-align: center;
+    overflow: hidden;
+    direction: rtl;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    color: var(--accent-color, rgb(0, 120, 215));
+    background-color: rgb(255 255 255 / .5);
+    outline: none;
+    &:focus { color: var(--active-accent, rgb(0, 60, 255)); }
+  }
+  > label[for] {
+    position: absolute;
+    bottom: .25rem; right: .25rem;
+    overflow: hidden;
+    min-width: auto; width: 1.5rem;
+    height: 1.5rem; text-indent: 100%;
+    &::selection { color: inherit; background-color: inherit; }
+  }
+  &:focus-within {
+    outline: solid var(--active-accent, rgb(0, 60, 255)) .125rem;
+  }
+  /** required (asterix) **/
+  &.required {
+    &::after {
+      content: '\2731';
+      display: block;
+      position: absolute; z-index: 3;
+      top: 0; right: 0;
+      width: auto; height: 1rem; line-height: 1rem;
+      padding: 0 .25rem .125rem 0;
+      text-align: right; font-size: .6rem;
+    }
+  }
+  /** .hint (OFF PAGE) **/
+  > .hint {
+    display: none;
+    /* position: fixed; z-index: 100;
+    right: var(--popup-right, 3rem);
+    bottom: -33%; left: 0;
+    height: fit-content; max-height: 33%;
+    width: fit-content; max-width: 40em;
+    text-wrap: pretty;
+    line-height: 1.375rem;
+    overflow-y: auto;
+    padding: var(--inline-spacing, 1rem);
+    background-color: var(--complementary-canvas, white);
+    border: solid;
+    border-width: .75rem .75rem 0 0;
+    border-color: var(--error-color, red);
+    box-shadow: .5rem .5rem 1rem rgb(0 0 0 / .5);
+    transition: bottom 1s ease-out; */
+  }
+  /** ACTIVE **/
+  &:has( > input:open ),
+  &.verifying, &.error,
+  &:focus-within:not( :has( > .preview-link) ) {
+    z-index: 4;
+    margin-top: -1rem;
+    height: 4rem;
+    border-radius: .33rem .33rem 0 0;
+    box-shadow: rgb(0 0 0 / .25) .1rem -.1rem .3rem;
+    > legend {
+      height: 4rem;
+      font-size: .75rem;
+      line-height: 1.125rem;
+      padding-inline: .25rem;
+      background-color: rgb(255 255 255 / .5);
+    }
+    > label[for] {
+      z-index: 3;
+      width: calc(100% - .5rem);
+      height: 2.5rem;
+      text-indent: 0; /*2rem;*/
+    }
+  }
+  &:not(.error):has( > input:open ) > legend::before {
+    content: attr(data-label-active) ' ';
+  }  
+}
+
+/** .file **
+.file {
+  display: inline-block;
+  position: relative;
+  min-width: 15rem; /*240*//*
+  margin: .0625rem -.125rem .0625rem 0;
+  padding: 0;
+  vertical-align: bottom;
+  background-color: var(--primary-color, rgb(0, 120, 215));
+  background-color: yellow;
+  transition: all .3s linear;
+  top: 0; height: 3rem;
+  > label:first-child { background-color: blue;
+    display: block; z-index: 4;
+    position: absolute;
+    top: 0; right: 0; left: 0;
+    height: 3rem;
+    &:has( + .preview-link ) { background-color: red;
+      height: 1rem;
+    }
+    &::before { background-color: green;
+      content: "\2718";
+      z-index: -2;
+      position: absolute;
+      top: 1.25rem; right: .25rem;
+      height: 1.5rem;
+      width: 1.5rem;
+      text-align: center;
+      line-height: 1.5rem;
+      border-radius: .25rem;
+    }
+  }
+  > .preview-link { background-color: purple;
+    display: block;
+    position: absolute;
+    bottom: 0; left: 0;
+    padding-inline: .5rem .25rem;
+    width: calc(100% - 2rem); height: 2rem;
+    text-align: center;
+    overflow: hidden;
+    direction: rtl;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    color: white;
+  }
+  > input[type="file"] {
+    width: 0; height: 0;
+    float: right;
+    margin: 0; padding: 0;
+    outline: none 0;
+  }
+}
+*/
+
+/** .file **
+.file {
+  display: inline-block;
+  position: relative;
+  min-width: 15rem; /*240*//*
+  margin: .0625rem -.125rem .0625rem 0;
+  padding: 0;
+  vertical-align: bottom;
+  background-color: var(--primary-color, rgb(0, 120, 215));
+  transition: all .3s linear;
+  top: 0; height: 3rem;
+  > input[type="file"] {
+    width: 0; height: 0;
+    float: right;
+    margin: 0; padding: 0;
+    outline: none 0;
+  }
+  /** .file > label **//*
+  > label:first-child {
+    position: absolute; z-index: 2;
+    top: 0; right: 0; left: 0; bottom: 0;
+    color: var(--text-color);
+    font-size: 1.25rem;
+    line-height: 3rem;
+    padding-inline: .5rem;
+    overflow: hidden; text-wrap: nowrap;
+    text-overflow: ellipsis;
+    background-color: white;
+    transition: all .3s linear;
+    /** Browse BUTTON **//*
+    &::after {
+      cursor: pointer;
+      content: attr(data-message-button);
+      position: absolute; z-index: 0;
+      top: 1.25rem; right: .33rem; bottom: .33rem; left: .33rem;
+      font-size: 1.25rem; font-weight: normal;
+      text-align: center; line-height: 2.5rem;
+      color: var(--primary-contrast-color, white);
+      background-color: var(--primary-color, black);
+      opacity: 0;
+    }
+  }
+  /** Active **//*
+  &:has( input[type="file"]:open ),
+  &:focus-within,
+  &.verifying,
+  &.error {
+    z-index: 3;
+    top: -1rem; height: 4rem;
+    margin-bottom: -1rem;
+    border-radius: .33rem .33rem 0 0;
+    box-shadow: rgb(0 0 0 / .25) .1rem -.1rem .3rem;
+    > label:first-child {
+      font-size: .75rem;
+      line-height: 1.125rem;
+      padding-inline: .25rem;
+      border-radius: .33rem .33rem 0 0;
+      background-color: rgba(255,255,255, .5);
+      &::after {
+        z-index: 4;
+        transition-delay: .4s;
+        transition-property: opacity;
+        opacity: 1;
+      }
+    }
+  }
+  /** MESSAGE States **//*
+  &:has( input[type="file"]:open ) > label::before,
+  &:focus-within > label::before { content: attr(data-message-ready) ' ';
+  } &.verifying > label::before { content:  attr(data-message-active) ' ';
+  } &.verified > label::before { content:  attr(data-message-good) ' ';
+  } &.error > label::before { content:  attr(data-message-bad) ' ';
+  }
+  /** Outline on BUTTON **//*
+  &:focus-within > label::after {
+    outline: solid var(--active-accent, rgb(215, 0, 215)) .125rem;
+  }
+  /** Error colour changes **//*
+  &.error{
+    --primary-color: red;
+    --active-accent: white;
+    > label:first-child {
+      --text-color: white;
+      --primary-color: white;
+      --primary-contrast-color: red;
+      --active-accent: black;
+      background-color: red !important;
+    }
+  }
+}*/

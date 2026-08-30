@@ -12,6 +12,7 @@ header('Content-Type: text/css; charset=utf-8');
   --icon-x16-menu: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><?php include('../img/dynamic/icon-x16-menu.svg.php'); ?></svg>');
   --icon-x16-info: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><?php include('../img/dynamic/icon-x16-info.svg.php'); ?></svg>');
   --icon-x16-search-glass: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><?php include('../img/dynamic/icon-x16-search-glass.svg.php'); ?></svg>');
+  --icon-x48-person-portrait: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><?php include('../img/dynamic/icon-x48-person-portrait.svg.php'); ?></svg>');
   --icon-x16-star: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><?php include('../img/dynamic/icon-x16-star.svg.php'); ?></svg>');
   --icon-x16-heart: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><?php include('../img/dynamic/icon-x16-heart.svg.php'); ?></svg>');
 }

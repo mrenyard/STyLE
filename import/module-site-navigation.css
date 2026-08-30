@@ -1,0 +1,37 @@
+/**
+ * module-site-navigation.css
+ *
+ * Ordered and structured according to STyLEs published conventions.
+ */
+ /* ==============================================================================================
+  moduleS - Discrete, reusable, modular components, usually denoted with a module class name
+         e.g. product lists, contact forms...
+  ============================================================================================ */
+
+
+#site-nav {
+  position: fixed; z-index: 100;
+  top: .375rem; right: .25rem;
+  width: 2.5rem; height: 2.5rem;
+  text-align: center; line-height: 2.5rem;
+  overflow: clip;
+  color: var(--secondary-contrast);
+  background-color: var(--secondary-color);
+  > h2 {
+    margin: 0 0 .5rem;
+    width: 2.5rem; height: 2.5rem;
+    text-indent: 2.5rem; overflow: clip;
+    color: var(--accent-contrast, white); background-color: var(--accent-color, rgb(0, 120, 215));
+    mask: var(--icon-x16-menu) center center / 1.75rem no-repeat;
+  }
+  &:focus, &:focus-within, &:hover {
+    animation: site-nav .5s ease-out forwards;
+  }
+}
+#site-nav > h2, #site-nav > ol > li { cursor: pointer; }
+
+@keyframes site-nav {
+  0% { height: 2.5rem; }
+  99% { height: calc(100svh - 3.5rem); }
+  100% { overflow: visible; height: auto; bottom: 3.25rem; }
+}

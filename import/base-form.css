@@ -1,0 +1,131 @@
+/**
+ * base-form.css
+ * 
+ * https://www.joshwcomeau.com/css/custom-css-reset/
+ * https://codepen.io/kevinpowell/pen/abMdOpp
+ * 
+ * Ordered and structured according to STyLEs published conventions.
+ */
+/* ========================================================================
+  BASE   - Primary HTML elements such as the body, form tags, links...
+  ======================================================================= */
+
+input, select { padding: 0 .0675rem 0 .375rem; }
+::-moz-color-swatch { border: none 0;
+} ::-webkit-color-swatch { border: none 0; }
+input[type="color"] { appearance: none; padding: 0; }
+input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+input[type="number"] { padding-right: .375rem; }
+input[type="number"]:disabled { appearance: textfield; }
+input[type=checkbox]:disabled ~ label { color: rgb(115 115 115); }
+input[type="range"] {
+  margin-left: .375rem; padding: 0;
+  max-width: calc(100% - .75rem);
+} input[type="range"]:has( ~ .ind.verifying) {
+  max-width: calc(100% - 2.25rem);
+}
+
+textarea {
+  min-width: 100%; max-width: 100%;
+  padding-inline: .25rem;
+  border: none;
+}
+
+main > form:only-child {
+  background-color: var(--primary-color, rgb(190,190,190));
+  > fieldset > legend:first-child {
+    background-color: var(--primary-color, rgb(190,190,190));
+  }
+  > footer > menu {
+    padding-left: 0;
+    > li {
+      display: inline-flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.field {
+  position: relative;
+  margin-bottom: .125rem; padding: .5rem;
+  background-color: rgba(255, 255, 255, .5);
+  &.flag > label { line-height: 1.25rem; }
+  &:is(ol, ul) {
+    padding: 0;
+    > li { list-style: none; }
+  }
+  > legend {
+    display: contents;
+    margin: 0;
+  }
+}
+
+.required > :is(label:first-child, legend) {
+  &::after {
+    content: '\2731';
+    font-size: .6rem;
+    vertical-align: super;
+  }
+}
+
+.checkbox.list, .radio.list  {
+  margin-bottom: .125rem;
+  background-color: rgba(255, 255, 255, .5);
+  > legend { display: contents; }
+  > ol , > ul {
+    list-style: none;
+    padding: 0 .125rem .125rem;
+    > li {
+      line-height: 1.75rem;
+      padding: 0 .25rem .25rem;
+      &:nth-of-type(odd) { background-color: rgb(0 0 0 / .125); }
+      > meter { width: 30%;
+        + label  { min-width: calc(100% - 30% - .375rem); }
+      }
+    }
+  }
+}
+
+.image.button {
+  margin-bottom: .125rem;
+  padding: var(--inline-padding, .25rem);
+  background-color: rgba(255, 255, 255, .5);
+  &:has( button:first-child ) {
+    > button {
+      vertical-align: top;
+      width: 100%; min-height: 1.825rem;
+      border: none; outline: none;
+      border-radius: .25rem .25rem 0 0;
+      > img { width: 100%; background-color: transparent; }
+    }
+    > label {
+      display: block; width: 100%;
+      text-align: center;
+      background-color: white;
+      border-radius: 0 0 .25rem .25rem;
+    }
+  }
+}
+
+.image.input {
+  margin-bottom: .125rem;
+  padding: var(--inline-padding, .25rem);
+  background-color: rgba(255, 255, 255, .5);
+  > input[type="image"] { width: 100%; }
+  > label {
+    display: block; width: 100%;
+    text-align: center;
+    background-color: white;
+    border-radius: 0 0 .25rem .25rem;
+  }
+}
+
+.file {
+  margin-bottom: .125rem; padding: .5rem;
+  background-color: rgba(255, 255, 255, .5);
+  /* > .hint {
+    display: block; 
+    &::first-letter { text-transform: capitalize; }
+  } */
+}
+

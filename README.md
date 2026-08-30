@@ -1,8 +1,8 @@
 # STyLE - a Semantic Templates with Layered Elements based CSS Framework
-Based on the same semantic HTML patterns as used for [RAMP](https://github.com/mrenyard/RAMP) and inspired by Snook's [Scalable and Modular Architecture](https://smacss.com/book/), reworked for modern CSS (Baseline 2024). STyLE is a pure CSS Framework using modern features and standards to target a range of use cases. As both an architecture (the Semantically Templated and Layered Elements Architecture) with a set of design patterns, HTML templates, CSS rules & guidelines to help inform and manage your CSS, and a CSS framework (The Semantic Templates & Layered Elements based CSS Framework) STyLE provides a base set of Layouts, UX components, Modules and Web Elements for use with a variety of web based projects.
+Based on the same semantic HTML patterns as used for [RAMP](https://github.com/mrenyard/RAMP) and inspired by Snook's [Scalable and Modular Architecture](https://smacss.com/book/), reworked for modern CSS (Baseline 2024), STyLE is a pure CSS Framework using modern features and standards to target a range of use cases. As both an architecture (the Semantically Templated and Layered Elements Architecture), with a set of design patterns, HTML templates, CSS rules & guidelines, to help inform and manage your CSS, and a CSS framework (The Semantic Templates & Layered Elements based CSS Framework), STyLE provides a base set of layouts, UX components, modules and web elements for use with a variety of web based projects.
 
-## The Semantically Templated and Layered Elements Architecture & Philosophy
-A STyLE architecture consists of...
+## The Semantically Templated and Layered Elements Architecture
+The STyLE philosophy and architecture...
 
 CSS with STyLE.
 

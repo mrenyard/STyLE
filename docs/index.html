@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Style Guide and CSS Design Patterns</title>
+    <title>A Guide to STyLE (The Semantically Templated and Layered Elements based CSS Framework)</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,interactive-widget=resizes-content">
     <link rel="stylesheet" href="../import/icons.css.php">
@@ -17,50 +17,103 @@
   <body>
     <main id="main"><a href="#main" title="Style Guide and CSS Design Patterns of a RAMP Application">#</a>
       <header>
-        <h1>Style Guide and CSS Design Patterns</h1>
-        <p></p>
+        <h1>Working with <abbr>STyLE</abbr> the Semantically Templated and Layered Elements based <abbr>CSS</abbr> Framework</h1>
+        <p><abbr>STyLE</abbr> enforces the premise that semantic web documents and applications have all the necessary elements (hooks) for a fully fledged <abbr>CSS</abbr> framework. Through its layered approach of mangaging & ordering StyleSheets (& <abbr>CSS</abbr> rules), <abbr>STyLE</abbr> provides a variety of visually pleasing, user friendly and user centric <abbr>UX</abbr>&nbsp;components, layouts, patterns and web&nbsp;features.</p>
       </header>
       <section>
-        <h1>Simplified demos of indervidual layers or moduals</h1>
+        <h2>Available (Default) Individual Layers and Modules</h2>
         <ol>
           <li><a href="icons.php">Full Icon Set</a> (admin generated icons.css)</li>
-          <li>Base Styles.
+          <li>Base - Primary <abbr>HTML</abbr> elements such as the body, form tags, links...
             <ol>
-              <li><a href="base.html">Base Style</a> (main) (<a href="../import/base.css">base.css</a>)</li>
-              <li><a href="base-form-controls.html">Base Styles for Form Controls</a> (<a href="../import/base-form-controls.css">base-form-controls.css</a>)</li>
+              <li><a href="combined.php?import=base|base-form|wireframe">Base reset & typography</a> - combined (invalid <abbr>HTML</abbr> for testing only)<br>
+                <em>This combined base demo uses <a href="../scratch/wireframe.css">scratch/wireframe.css</a> for a transparent element view.</em>
+                <ol>
+                  <li><a href="simple.php?import=base">Simple Page</a> (main) (<a href="../import/base.css">base.css</a>)</li>
+                  <li><a href="content.php?import=base">Content page</a> (main + aside) (<a href="../import/base.css">base.css</a>)</li>
+                  <li><a href="simple-index.php?import=base">Index page</a> (main + indexes) (<a href="../import/base.css">base.css</a>)</li>
+                  <li><a href="content-full.php?import=base">Full page</a> (header + main + indexes + footer) (<a href="../import/base.css">base.css</a>)</li>
+                </ol>
+              </li>
+              <li><a href="combined-form.php?import=base|base-form|wireframe">Base form fixes</a> - combined<br />
+                <em>This combined form demo uses <a href="../scratch/wireframe.css">scratch/wireframe.css</a> for a transparent element view.</em>
+                <ol>
+                  <li><a href="form-fields.php?import=base|base-form">Field Form Controls</a> (<a href="../import/base.css">base.css</a> + <a href="../import/base-form.css">base-form.css</a>)</li>
+                  <li><a href="form-listed-controls.php?import=base|base-form">Listed Form Selection</a> (<a href="../import/base.css">base.css</a> + <a href="../import/base-form.css">base-form.css</a>)</li>
+                  <li><a href="form-img-controls.php?import=base|base-form">Image Based Form Controls</a> (<a href="../import/base.css">base.css</a> + <a href="../import/base-form.css">base-form.css</a>)</li>
+                  <li><a href="form-file-upload.php?import=base|base-form">File Upload Form Controls</a> (<a href="../import/base.css">base.css</a> + <a href="../import/base-form.css">base-form.css</a>)</li>
+                  <li><a href="metered-controls.php?import=base|base-form">Meter Output</a> (<a href="../import/base.css">base.css</a> + <a href="../import/base-form.css">base-form.css</a>)</li>
+                  <li><a href="html-editor.php?import=base|base-form"><abbr>HTML</abbr>ight Editor</a> (<a href="../import/base.css">base.css</a> + <a href="../import/base-form.css">base-form.css</a>)</li>
+                </ol> 
+              </li>
             </ol>
           </li>
-          <li>Layout Styles.
+          <li>Elements - Hyper small frequalty used components such as form fields, controls or buttons.
             <ol>
-              <li><a href="layout.html">Layout Style</a> (main page level) - combined (invalid HTML for testing only)<br>
-                <em>These layout demos use <a href="../scratch/wireframe.css">scratch/wireframe.css</a> for a transparent element view.</em>
+              <li>Form controls & field elements (<strong>All</strong> below rely on: <a href="../import/base.css">base.css</a> &amp; <a href="../import/base-form.css">base-form.css</a>)
                 <ol>
-                  <li><a href="layout-content.html">Content page</a> (<a href="../import/layout.css">layout.css</a>)</li>
-                  <li><a href="layout-content-simple.html">Simple content page</a> (<a href="../import/layout.css">layout.css</a>)</li>
-                  <li><a href="layout-hero-logo-content.html">Hero logo content page</a> (<a href="../import/layout.css">layout.css</a>)</li>
-                  <li><a href="layout-hero-content.html">Hero content page</a> (<a href="../import/layout.css">layout.css</a>)</li>
-                  <li><a href="layout-index.html">Simple index page</a> (<a href="../import/layout.css">layout.css</a>)</li>
-                  <li><a href="layout-hero-logo-index.html">Hero logo index page</a> (<a href="../import/layout.css">layout.css</a>)</li>
-                  <li><a href="layout-hero-index.html">Hero index page</a> (<a href="../import/layout.css">layout.css</a>)</li>
-                  <li><a href="layout-data.html">Data (RAMPapp) page</a> (<a href="../import/layout.css">layout.css</a>)</li>
-                  <li><a href="layout-subdata.html">Page with Sub (article) Data (RAMPapp)</a> (<a href="../import/layout.css">layout.css</a>)</li>
+                  <li><a href="form-fields.php?import=base|base-form|element-field">Element Field</a> (<a href="../import/element-field.css">element-field.css</a>)</li>
+                  <li><a href="form-listed-controls.php?import=base|base-form|element-listed-selection">Listed Form Elements</a> (<a href="../import/element-listed-selection.css">element-listed-selection.css</a>)</li>
+                  <li><a href="form-img-controls.php?import=base|base-form|element-img-inputs">Image Based Form Elements</a> (<a href="../import/element-img-input.css">element-img-input.css</a>)</li>
+                  <li><a href="form-file-upload.php?import=base|base-form|element-file-upload">File Upload Form Elements</a> (<a href="../import/element-file-upload.css">element-file-upload.css</a>)</li>
+                  <li><a href="metered-controls.php?import=base|base-form|element-metered">Meter Output Element</a> (<a href="../import/element-metered.css">element-metered.css</a>)</li>
+                  <li><a href="html-editor.php?import=base-form-controls|state-form-controls|wireframe"><abbr>HTML</abbr>ight Editor</a> (<a href="../import/element-editor.css">element-editor.css</a>)</li>
                 </ol>
-              </li>    
-              <li>Layouts for complex form data (RAMP)</a> (<a href="../import/layout-form-data.css">layout-form-data.css</a>)
+              </li>
+              <li>Other micro components
                 <ol>
-                  <li><a href="layout-form-record.html">Single record</a></li>
-                  <li><a href="layout-form-new-record.html">New record</a></li>
-                  <li><a href="layout-form-collection.html">Collection of Records</a></li>
+                  <li>...</li>
                 </ol>
               </li>
             </ol>
           </li>
-          <li>Moduals.
+          <li>Layout - How the page is divided and aranged from sections, headers, footers, aside etc.
             <ol>
-              <li><a href="stickyfoot-footnotes.html">Sticky Footer</a> (<a href="../import/modual-stickyfoot-footnotes.css">modual-stickyfoot-footnotes.css</a>) - combined (invalid HTML)</li>
-              <li><a href="article-more-overlay.html">Article More Overlay</a> (<a href="../import/modual-article-more-overlay.css">modual-article-more-overlay.css</a>)</li>
-              <li><a href="page-nav-search.html">In-page Navigation and Site Search</a> <strong>tab to view</strong> (<a href="../import/modual-page-nav-search.css">modual-page-nav-search.css</a>)</li>
-              <li><a href="site-navigation.html">Main Site Navigation</a> (<a href="../import/modual-site-navigation.css">modual-site-navigation.css</a>) <em>incl. modual-page-nav-search.css in demo.</em></li>
+              <li><s><a href="combined.php?import=layout|wireframe">Layout Style</a> - combined (invalid <abbr>HTML</abbr> for testing only)<br>
+                <em>These layout demos use <a href="../scratch/wireframe.css">scratch/wireframe.css</a> for a transparent element view.</em></s>
+                <ol>
+                  <li><s><a href="content-full.php?import=layout|wireframe">Content page</a> (<a href="../import/layout.css">layout.css</a>)</s></li>
+                  <li><s><a href="content-simple.php?import=layout|wireframe">Simple content page</a> (<a href="../import/layout.css">layout.css</a>)</s></li>
+                  <li><s><a href="hero-logo-content.php?import=layout|wireframe">Hero logo content page</a> (<a href="../import/layout.css">layout.css</a>)</s></li>
+                  <li><s><a href="hero-content.php?import=layout|wireframe">Hero content page</a> (<a href="../import/layout.css">layout.css</a>)</s></li>
+                  <li><s><a href="simple-index.php?import=layout|wireframe">Simple index page</a> (<a href="../import/layout.css">layout.css</a>)</s></li>
+                  <li><s><a href="hero-logo-index.php?import=layout|wireframe">Hero logo index page</a> (<a href="../import/layout.css">layout.css</a>)</s></li>
+                  <li><s><a href="hero-index.php?import=layout|wireframe">Hero index page</a> (<a href="../import/layout.css">layout.css</a>)</s></li>
+                  <li><s><a href="data.php?import=layout|wireframe">Data (<abbr>RAMP</abbr>app) page</a> (<a href="../import/layout.css">layout.css</a>)</s></li>
+                  <li><s><a href="subdata.php?import=layout|wireframe">Page with Sub (article) Data (<abbr>RAMP</abbr>app)</a> (<a href="../import/layout.css">layout.css</a>)</s></li>
+                </ol>
+              </li>    
+              <li>Layouts for complex form data (<abbr>RAMP</abbr>)</a> (<a href="../import/layout-form-data.css">layout-form-data.css</a>)
+                <ol>
+                  <li><a href="form-record.html">Single record</a></li>
+                  <li><a href="form-new-record.html">New record</a></li>
+                  <li><a href="form-collection.html">Collection of Records</a></li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li>modules - Discrete, reusable, modular components, usually denoted with a module class name.
+            <ol>
+              <li><a href="erorr-form-controls.php?import=base|base-form|element-field|element-file-upload|module-error-tips">Form Field with Error Tips</a> (<a href="../import/module-error-tips.css">module-error-tips.css</a>)</li>
+              <li><a href="stickyfoot-footnotes.html">Sticky Footer</a> (<a href="../import/module-stickyfoot-footnotes.css">module-stickyfoot-footnotes.css</a></li>
+              <li><a href="article-more-overlay.html">Article More Overlay</a> (<a href="../import/module-article-more-overlay.css">module-article-more-overlay.css</a>)</li>
+              <li><a href="page-nav-search.html">In-page Navigation and Site Search</a> <strong>tab to view</strong> (<a href="../import/module-page-nav-search.css">module-page-nav-search.css</a>)</li>
+              <li><a href="site-navigation.html">Main Site Navigation</a> (<a href="../import/module-site-navigation.css">module-site-navigation.css</a>) <em>incl. module-page-nav-search.css in demo.</em></li>
+            </ol>
+          </li>
+          <li>Spacing - Whitespace relative to font size and or viewport.
+            <ol>
+              <li>...</li>
+            </ol>
+          </li>
+          <li>State - How thing may change based of user interaction or through JavaScript DOM changes,
+            <ol>
+              <li>...</li>
+            </ol>
+          </li>
+          <li>Themes - Recurring colour palette for text, links, buttons and background-images...
+            <ol>
+              <li>...</li>
             </ol>
           </li>
         </ol>

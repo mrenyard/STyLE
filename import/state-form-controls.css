@@ -1,16 +1,12 @@
 /**
  * state-form-controls.css
  *
- * Default CSS Manifest modified from Snook's
- * Scalable and Modular Architecture for CSS
- * http://smacss.com/book/
- * 
+ * Ordered and structured according to STyLEs published conventions.
  */
 /* ===============================================================================================
    STATE   - How thing may change based of user interaction or through JavaScript DOM changes,
              e.g. errors, hidden, expanded, active
    ============================================================================================ */
-
 
 /** .field (hijax indicator) **/
 .js .field > .ind {
@@ -20,8 +16,7 @@
   padding-left: 1.875rem;
   overflow: hidden;
   text-align: center; line-height: 1rem;
-  background-color: transparent;
-
+  /* background-color: rgb(255 255 255 / .75); */
   &.verified,
   &.error {
     opacity: 0; z-index: -1;
@@ -37,9 +32,10 @@
     font-size: 1.625rem; line-height: 1.25rem;
     border-radius: 50%;
     border: none 0;
+    background-color: var(--accent-color, rgb(0, 120, 215));
   }
   &.verifying::before {
-    border: dotted .2rem var(--accent-color, rgb(0, 120, 215));;
+    border: dotted .2rem var(--accent-contrast, white);
     animation-iteration-count: infinite;
     animation-name: spinAndPulse;
     animation-duration: 1.5s;
@@ -71,26 +67,24 @@
   to { transform: scale(1) rotate(360deg); }
 }
 
-
-/** .field.file (active upload) **
-.js .field.file.checking > label:first-child {
+/** .file (active upload) **/
+.js .file.verifying > label:first-child {
   background: linear-gradient(60deg, white, transparent, white, transparent, white);
   background-size: 200% 100%;
   animation: bgSwipe 1s linear infinite;
-}
-@keyframes bgSwipe {
+} @keyframes bgSwipe {
   0% { background-position: 100% 100%; }
   100% { background-position: 0% 0%; }
-}*/
+}
 
 /** .js .field.range (value indivator) **/
 .js .field.range {
   &:not( .rate )::after {
     content: attr(data-value);
     position: absolute;
-    top: 0; right: 0;
-    width: 3.25rem; height: 3rem;
-    text-align: center; line-height: 3.875rem;
+    top: 0; right: .5rem;
+    width: 2.75rem; height: 3rem;
+    text-align: right; line-height: 3.875rem;
   }
   &.percent::after { content: attr(data-value) '%'; }
   &:has( input ~ .ind.verifying )::after {
@@ -171,8 +165,8 @@
   }
 }
 
-/*
-fieldset.toolbar {
+
+/* fieldset.toolbar {
 } fieldset.toolbar:focus-within {
   outline: none;
 } fieldset.toolbar > .field:focus-within {

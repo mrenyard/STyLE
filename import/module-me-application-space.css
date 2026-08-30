@@ -1,0 +1,109 @@
+/**
+ * module-me-application-space.css
+ *
+ * Expose me application space; underneath page content.
+ *
+ * Ordered and structured according to STyLEs published conventions.
+ */
+ /* ==============================================================================================
+  moduleS - Discrete, reusable, modular components, usually denoted with a module class name
+         e.g. product lists, contact forms...
+  ============================================================================================ */
+
+body.me-page,
+body:has( > #me:focus-within ),
+body:has( > #me:target){
+  top: calc(100svh - 3.25rem);
+  overflow: clip;
+  #site-nav { z-index: -2; }
+} body:has( > #me:focus-within ),
+body:has( > #me:target) {
+  animation: .25s me-drop linear forwards;
+  animation-delay: 1s;
+} body.me-page,
+body.me-page:has( > #me:focus-within ),
+body.me-page:has( > #me:target) {
+  animation: none;
+  height: 3.25rem;
+}
+
+body { min-height: 100svh; }
+/* #contentinfo { min-height: 100svh; } */
+
+body.me-page > #me,
+body.me-page > #me:focus-within,
+body.me-page > #me:target {
+  outline: none;
+  h2 {
+    right: .25rem;
+    width: 5.5rem;
+  }
+  > ol.app-list {
+    animation: none;
+    opacity: 1; z-index: 1;
+  }
+}
+
+#top:has( #quick-links:focus-within) ~ #me > h2,
+#top:target ~ #me > h2 {
+  top: 3.625rem; right: .25rem;
+  width: 5.5rem;
+}
+
+#me {
+  h2 {
+    margin: 0;
+    position: fixed; z-index: 99;
+    top: .375rem; right: 3.25rem;
+    width: 2.5rem; height: 2.5rem;
+    text-indent: 9rem; overflow: clip;
+    text-align: center; line-height: 2.5rem;
+    background-color: var(--secondary-color);
+    transition: width 1s ease-out, right 1s ease-out, top 1s ease-out;
+    cursor: pointer;
+    abbr {
+      position: absolute;
+      color: var(--accent-color, rgb(0, 120, 215)); background-color: currentColor;
+      &.fn {
+        top: .25rem; right: 2.5rem;
+        width: 2.625rem; height: 2rem;
+        border-radius: 50%;
+        font-size: .75rem; font-weight: bold;
+        text-indent: 0; line-height: 2rem;
+        color: var(--secondary-color, rgb(200, 200, 200)); background-color: var(--accent-color, white);
+      }
+      &[title="My Environment"] {
+        top: 0; right: .04rem; width: 2.5rem; height: 2.5rem;
+        mask: var(--icon-x48-person-portrait) center center / 1.5rem no-repeat;
+        color: var(--accent-color, rgb(0, 120, 215)); background-color: currentColor;
+      }
+    }
+  }
+  > ol {
+    display: grid; place-items: center;
+    position: fixed; z-index: -2;
+    top: 3.5rem; bottom: 3.25rem; right: 0; left: 0;
+    opacity: 0;
+  }
+  &:focus-within {
+    outline: none;
+    > h2 {
+      right: .25rem;
+      width: 5.5rem;
+    }
+    > ol.app-list {
+      animation: reveal-me 2s ease-out forwards;
+      animation-delay: 1s;
+    }
+  }
+}
+
+@keyframes me-drop {
+  0% { height: 100svh; }
+  100% { height: 3.25rem; }
+}
+
+@keyframes reveal-me {
+  0% { opacity: 0; }
+  100% { opacity: 1; z-index: 1; }
+}

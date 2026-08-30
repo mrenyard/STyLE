@@ -1,0 +1,48 @@
+/**
+ * module-error-tips.css
+ *
+ * Form field error Tips ([title], .hint)
+ *
+ * Ordered and structured according to STyLEs published conventions.
+ */
+ /* ==============================================================================================
+  moduleS - Discrete, reusable, modular components, usually denoted with a module class name
+         e.g. product lists, contact forms...
+  ============================================================================================ */
+
+:is(.field, .file):focus-within {
+  &.error, &:has( input:user-invalid ) {
+    background-color: var(--error-contrast, white);
+    outline-color: var(--error-color, rgb(255, 0, 0));
+    /** focus popup errror .hint (ON PAGE) **/
+    > .hint { bottom: 0; }
+    /** focus popup error field description **/
+    &[title]::before {
+      z-index: 100;
+      content: attr(title);
+      position: absolute; z-index: 3;
+      right: calc(var(--popup-offset, .25rem)*-1);
+      bottom: 95%;
+      padding: .75rem .5rem .5rem;
+      line-height: 1.375em;
+      width: calc(100% + var(--popup-offset, .25rem));
+      max-width:max-content; min-width: 6.5rem;
+      font-weight: normal; font-size: .8rem; 
+      color:var(--error-contrast, white);
+      background-color: var(--error-color, red);
+      box-shadow: .125rem .125rem .5rem rgba(0,0,0,.5);
+      border-radius: .25rem;
+    } &.required::before { /** error (title) dialogue **/
+      right: 0; border-radius: .25rem .25rem 0 .25rem;
+    }
+    /** focus required (asterix) **/
+    &.required::after {
+      content: 'Required \2731';
+      padding-left:  .5rem;
+      border-radius: 0 0 .25rem .25rem;
+      color: var(--error-contrast, white);
+      background-color: var(--error-color, red);
+      box-shadow: .125rem .28rem .125rem -.125rem rgba(0,0,0,.5);
+    }
+  }
+}
