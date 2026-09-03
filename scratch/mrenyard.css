@@ -86,7 +86,7 @@ body > section,
   max-width: 40ch;
   overflow-y: auto;
   padding: var(--popup-inner);
-  color: var(--text-color);
+  color: var(--text-color, rgb(10 10 10));
   background-color: rgb(255 255 200);
   border: solid;
   border-width: .75rem .75rem 0 0;
@@ -110,7 +110,7 @@ body > section,
   position: relative;
   /* padding: .5rem; */
   padding: var(--full-padding);
-  color: var(--primary-contrast-color);
+  color: var(--primary-contrast-color, rgb(255 255 255));
 }
 #top > figure.logo > a {
   background-color: blue;
@@ -183,7 +183,7 @@ body > section,
   text-align: center;
   line-height: 2.75rem;
   border-radius: var(--border-radius);
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-color, rgb(190 190 220));
 } #site-nav:target,
   #site-nav:focus-within {
   bottom: 4rem; height: auto;
@@ -309,6 +309,28 @@ body {
    THEMES   - Recurring colour palette, border-raduis and background-images (DARK & LIGHT)
    ============================================================================================ */
 
+/** DEFAUL COLOUR REFERANCE **/
+:root {
+  --text-color: rgb(10 10 10);
+  --background-color: rgb(255 255 255);
+  --primary-color: rgb(190 190 190);
+  --primary-contrast-color: rgb(10 10 10);
+  --secondary-color: rgb(190 190 220);
+  --darker-primary-color: rgb(140 140 140);
+  --darker-primary-contrast-color: rgb(0 0 0);
+  --accent-color: rgb(0 120 215);
+  --active-accent-color: rgb(0 60 255);
+  --accent-contrast-color: rgb(255 255 255);
+
+  --error-color: rgb(255 0 0);
+  --error-contrast-color: rgb(255 255 255);
+  --error-lighter-color: rgb(255 80 80);
+  --error-darker-color: rgb(155 0 0);
+  --checked-color: rgb(0 155 0);
+
+  --button-glow-color: rgb(255 255 155 / .75);
+}
+
 @media (prefers-color-scheme: dark) {
   body { color: rgb(225 225 225); }
   #main {
@@ -318,21 +340,19 @@ body {
   :root {
     --text-color: rgb(10 10 10);
     --primary-color: rgb(0 128 0);
-    --primary-contrast-color: rgb(255, 255, 255);
+    --primary-contrast-color: rgb(255 255 255);
     --secondary-color: rgb(0 99 0);
     --darker-primary-color: rgb(0 33 0);
     --darker-primary-contrast-color: rgb(200 200 200);
-    --selection-txt-color: rgb(255 255 255);
-    --selection-bg-color: rgb(0 128 0);;
     --accent-color: rgb(0 50 0 / .75);
-    --active-accent-color: rgb(50, 50, 50 / .75);
-    --accent-contrast: white;
+    --active-accent-color: rgb(50 50 50 / .75);
+    --accent-contrast-color: white;
 
-    --error-primary-color: rgb(255,0,0);
-    --error-contrast-color: rgb(255,255,255);
-    --error-primary-low-color: rgb(255,50,50);
-    --error-primary-high-color: rgb(140,0,0);
-    --checked-primary-color: rgb(0, 128, 0);
+    --error-color: rgb(255,0,0);
+    --error-contrast-color: rgb(255 255 255);
+    --error-lighter-color: rgb(255 50 50);
+    --error-darker-color: rgb(155 0 0);
+    --checked-color: rgb(0 155 0);
 
     --button-glow-color: rgb(255 255 155 / .75);
   }
@@ -342,29 +362,31 @@ body {
   body { color: rgb(33 33 33); }
   #main {
     background-color: rgb(255 255 255);
+    --post-highlight-color: rgb(100 155 100);
   }
   :root {
-    --text-color: rgb(10,10,10);
-    --primary-color: green;
-    --primary-contrast-color: white;
-    --secondary-color: rgb(0, 99, 0);
+    --text-color: rgb(10 10 10);
+    --primary-color: rgb(0 128 0);
+    --primary-contrast-color: rgb(255 255 255);
+    --secondary-color: rgb(0 99 0);
     --darker-primary-color: rgb(0 33 0);
     --darker-primary-contrast-color: rgb(200 200 200);
-    --selection-txt-color: white;
-    --selection-bg-color: green;
     --accent-color: rgb(200 255 200 / .75);
-    --secondary-accent-color: rgb(229, 165, 10);
-/*
-    --error-primary-color: rgb(255,0,0);
-    --error-contrast-color: rgb(255,255,255);
-    --error-primary-low-color: rgb(255,50,50);
-    --error-primary-high-color: rgb(140,0,0);
-    --checked-primary-color: rgb(0, 128, 0);  */
+    --active-accent-color: rgb(50 50 50 / .75);
+    --accent-contrast-color: rgb(255 255 255);
+    --secondary-accent-color: rgb(229 165 10);
+
+    --error-color: rgb(255 0 0);
+    --error-contrast-color: rgb(255 255 255);
+    --error-lighter-color: rgb(255 50 50);
+    --error-darker-color: rgb(155 0 0);
+    --checked-color: rgb(0 128 0);
 
     --button-glow-color: rgb(255 255 155 / .75);
   }
 }
 
+main { color: var(-color)}
 
 /* ==============================================================================================
   VENDOR  - Third party code over which you have no control, e.g. Normalize.css, Bootstrap.css

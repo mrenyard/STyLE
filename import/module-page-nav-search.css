@@ -58,7 +58,7 @@ body {
     height: 3rem;
     padding: .25rem;
     overflow: hidden;
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color, rgb(190 190 220));
     &:focus-within {
       outline: .2rem auto Highlight;
       outline-offset: -.25rem;
@@ -85,7 +85,7 @@ body {
       overflow: clip;
       > a {
         text-indent: 3rem;
-        color: var(--accent-contrast, white); background-color: currentColor;
+        color: var(--accent-contrast-color, rgb(255 255 255)); background-color: currentColor;
         mask: var(--icon-x16-info) center center / 1.75rem no-repeat;
       }
     }
@@ -123,7 +123,7 @@ body {
   top: .375rem; right: 6.25rem;
   overflow: hidden;
   width: 2.5rem; height: 2.5rem;
-  background-color: var(--primary-color);
+  background-color: var(--primary-color, rgb(190 190 190));
   border-radius: var(--border-radius);
   transition: all 1s  ease-in;
   > .field,
@@ -134,12 +134,12 @@ body {
     min-width: 2.5rem; height: 2.5rem;
     overflow: hidden;
     border: 0 none;
-    color: var(--primary-contrast-color);
-    background-color: var(--secondary-color);
+    color: var(--primary-contrast-color, rgb(10 10 10));
+    background-color: var(--secondary-color, rgb(190 190 220));
     &:focus {
       outline: .125rem solid white;
       outline-offset: -.125rem;
-      background-color: var(--accent-color, rgb(0, 120, 215));
+      background-color: var(--accent-color, rgb(0 120 215));
     }
   }
   > .field {
@@ -148,7 +148,7 @@ body {
     > label {
       width: 2.5rem; height: 2.5rem;
       text-indent: 2.5rem; overflow: hidden;
-      color: var(--accent-contrast, white); background-color: var(--accent-color, rgb(0, 120, 215));
+      color: var(--accent-contrast-color, rgb(255 255 255)); background-color: var(--accent-color, rgb(0 120 215));
       mask: var(--icon-x16-search-glass) center center / 1.5rem no-repeat;
       cursor: pointer;
     }
@@ -168,7 +168,7 @@ body {
       transition: padding 1s ease-out .5s;
     }
     label:has( ~ input:focus ) {
-        background-color: var(--accent-color, rgb(0, 120, 215));
+        background-color: var(--accent-color, rgb(0 120 215));
     }
   }
 } #top:target #quick-search,
@@ -187,11 +187,11 @@ main, aside, article, section {
   > :where( form:only-child) > a:first-child {
     float: left; z-index: 1;
     width: 1.25rem; height: 1.25rem;
-    color: var(--accent-contrast, white);
+    color: var(--accent-contrast-color, rgb(255 255 255));
     margin-right: .625rem; margin-bottom: -1.25rem; margin-left: -100rem;
     text-indent: .1875rem; line-height: 1.25rem;
     box-shadow: .25rem .25rem .5rem rgb(0 0 0 / .75);
-    background-color: var(--accent-color, rgb(0, 120, 215));
+    background-color: var(--accent-color, rgb(0 120 215));
     &:focus {
       width: 2rem;
       border-radius: 0 .5rem .5rem 0;

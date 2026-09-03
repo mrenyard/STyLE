@@ -13,7 +13,7 @@ article {
     position: relative;
     > p:last-of-type::after {
       content: 'more'; display: inline;
-      color: var(--accent-color, rgb(0, 120, 215));
+      color: var(--accent-color, rgb(0 120 215));
     }
     > footer { position: relative; z-index: 1; }
   }

@@ -96,8 +96,8 @@ footer > a:last-child {
   margin-right: -.125rem;
   background-color: rgb(0 0 0 / .125);
 } footer > menu > li > * {
-  background-color: var(--accent-contrast, white);
-  color: var(--accent-color, rgb(0, 120, 215));;
+  background-color: var(--accent-contrast-color, rgb(255 255 255));
+  color: var(--accent-color, rgb(0 120 215));;
 }
 
 p:has( + footer > a:last-child )::after {

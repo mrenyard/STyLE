@@ -11,9 +11,28 @@
   ============================================================================================ */
 
 :is(.field, .file):focus-within {
+  > .hint {
+    display: block;
+    position: fixed; z-index: 100;
+    right: var(--popup-right, 3rem);
+    bottom: -33%; left: 0;
+    height: fit-content; max-height: 33%;
+    width: fit-content; max-width: 40em;
+    text-wrap: pretty;
+    line-height: 1.375rem;
+    overflow-y: auto;
+    padding: var(--inline-spacing, 1rem);
+    background-color: var(--complementary-canvas, white);
+    border: solid;
+    border-width: .75rem .75rem 0 0;
+    border-color: var(--error-color, rgb(255 0 0));
+    box-shadow: .5rem .5rem 1rem rgb(0 0 0 / .5);
+    transition: bottom 1s ease-out;
+    &::first-letter { text-transform: capitalize; }
+  }
   &.error, &:has( input:user-invalid ) {
-    background-color: var(--error-contrast, white);
-    outline-color: var(--error-color, rgb(255, 0, 0));
+    background-color: var(--error-contrast-color, rgb(255 255 255));
+    outline-color: var(--error-color, rgb(255 0 0));
     /** focus popup errror .hint (ON PAGE) **/
     > .hint { bottom: 0; }
     /** focus popup error field description **/
@@ -28,8 +47,8 @@
       width: calc(100% + var(--popup-offset, .25rem));
       max-width:max-content; min-width: 6.5rem;
       font-weight: normal; font-size: .8rem; 
-      color:var(--error-contrast, white);
-      background-color: var(--error-color, red);
+      color:var(--error-contrast-color, rgb(255 255 255));
+      background-color: var(--error-color, rgb(255 0 0));
       box-shadow: .125rem .125rem .5rem rgba(0,0,0,.5);
       border-radius: .25rem;
     } &.required::before { /** error (title) dialogue **/
@@ -40,8 +59,8 @@
       content: 'Required \2731';
       padding-left:  .5rem;
       border-radius: 0 0 .25rem .25rem;
-      color: var(--error-contrast, white);
-      background-color: var(--error-color, red);
+      color: var(--error-contrast-color, rgb(255 255 255));
+      background-color: var(--error-color, rgb(255 0 0));
       box-shadow: .125rem .28rem .125rem -.125rem rgba(0,0,0,.5);
     }
   }

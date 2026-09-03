@@ -33,7 +33,10 @@
     <link rel="stylesheet" href="../import/icons.css.php">
   </head>
   <body id="SITE_ID">
-<?php include("inc/doc-header.php"); ?>
+<?php
+  $dynamicMod = '<input id="stop-animation" name="stop-animation" tabindex="1" type="checkbox" checked>';
+  include("inc/doc-header.php");
+ ?>
     <header id="top"<?=($_URL['path'] === '/docs2/homepage.php') ? ' class="hero"': ''; ?>>
 <?php include("inc/page-navigation.php"); ?>
 <?php include("inc/header-logo.php"); ?>

@@ -24,6 +24,7 @@ input[type="range"] {
 } input[type="range"]:has( ~ .ind.verifying) {
   max-width: calc(100% - 2.25rem);
 }
+h1:has( ~ button[formmethod="dialog"] ) { padding-right: 3rem; }
 
 textarea {
   min-width: 100%; max-width: 100%;
@@ -32,9 +33,9 @@ textarea {
 }
 
 main > form:only-child {
-  background-color: var(--primary-color, rgb(190,190,190));
+  background-color: var(--primary-color, rgb(190 190 190));
   > fieldset > legend:first-child {
-    background-color: var(--primary-color, rgb(190,190,190));
+    background-color: var(--primary-color, rgb(190 190 190));
   }
   > footer > menu {
     padding-left: 0;
@@ -123,9 +124,5 @@ main > form:only-child {
 .file {
   margin-bottom: .125rem; padding: .5rem;
   background-color: rgba(255, 255, 255, .5);
-  /* > .hint {
-    display: block; 
-    &::first-letter { text-transform: capitalize; }
-  } */
 }
 

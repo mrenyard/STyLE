@@ -23,10 +23,11 @@
  * @version 0.0.9;
  */
 ?>
-    <dialog id="modal"<?=($_GET['open'] === 'true') ? ' open' : ''; ?> data-confirm="Cancel,Confirm" data-submit="Cancel,Submit" data-reload="Wait,Reload"><form method="dialog">
+    <dialog id="modal"<?=($_GET['open'] === 'true') ? ' open' : ''; ?> closedby="any" data-confirm="Cancel,Confirm" data-submit="Cancel,Submit" data-reload="Wait,Reload"><form method="dialog">
       <header>
         <h1>Available Individual Layered STyLEs</h1>
-        <p>The below check boxes allow you to see and select which individual STyLE sheets and modules are include in this current&nbsp;design:</p>
+        <p>The below list indicates the individual STyLEsheets used in this current design and allows you to view and modify&nbsp;variation:</p>
+        <button style="position: absolute; top: .5rem; right: .5rem;" formmethod="dialog" autofocus>&nbsp;X&nbsp;</button>
       </header>
       <ol id="css-import">
         <li><label><input type="checkbox" name="import" value="base"> Base (<a href="../import/base.css">base.css</a>)</label></li>
@@ -52,18 +53,15 @@
         <li><label><input type="checkbox" name="import" value="module-page-nav-search"> In-page Navigation and Site Search (<a href="../import/module-page-nav-search.css">module-page-nav-search.css</a>)</label></li>
         <li><label><input type="checkbox" name="import" value="module-site-navigation"> Main Site Navigation (<a href="../import/module-site-navigation.css">module-site-navigation.css</a>)</label></li>
         <li><hr>
-          <label><input type="checkbox" name="import" value="spacing-adaptive"> Spacing (<a href="../import/spacing-adaptive.css">spacing-adaptive.css</a>)</label>
+          <label><input type="checkbox" name="import" value="spacing-adaptive">&nbsp;Spacing (<a href="../import/spacing-adaptive.css">spacing-adaptive.css</a>)</label>
         </li>
         <li><hr>
-          <label><input type="checkbox" name="import" value="state"> State (<a href="../import/state.css">state.css</a>)</label>
+          <label><input type="checkbox" name="import" value="state">&nbsp;State (<a href="../import/state.css">state.css</a>)</label>
         </li>
-        <li><label><input type="checkbox" name="import" value="state-form-controls"> State Form Controls (<a href="../import/state-form-controls.css">state-form-controls.css</a>)</label></li>
-        <li><hr>
-          <label><input type="checkbox" name="scratch" value="wireframe"> Wireframe (<a href="../scratch/wireframe.css">wireframe.css</a>)</label>
-        </li>
+        <li><label><input type="checkbox" name="import" value="state-form-controls">&nbsp;State Form Controls (<a href="../import/state-form-controls.css">state-form-controls.css</a>)</label></li>
       </ol>
-      <footer style="display: flex; justify-content: right;">
-        <button formmethod="dialog" autofocus>OK</button>
-        <button hidden>Confirm</button>
-      </footer>
+      <ol id="css-scratch">
+        <label>Scratch: <input type="text" name="scratch"></label>
+        inc.&nbsp;<label><input type="checkbox" name="wireframe" value="wireframe">&nbsp;Wireframe (<a href="../scratch/wireframe.css">wireframe.css</a>)</label>
+      </ol>
     </form></dialog>

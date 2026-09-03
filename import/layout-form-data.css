@@ -163,8 +163,8 @@ textarea {
     > label:first-child,
     > legend:first-child {
       overflow: visible;
-      color: var(--error-contrast, white);
-      background-color: var(--error-color, red);    
+      color: var(--error-contrast-color, rgb(255 255 255));
+      background-color: var(--error-color, rgb(255 0 0));    
     }
   }
   &:not( .flag ) > label,
@@ -236,15 +236,15 @@ textarea {
     background-color: var(--complementary-canvas, white);
     border: solid;
     border-width: .75rem .75rem 0 0;
-    border-color: var(--primary-color);
+    border-color: var(--primary-color, rgb(190 190 190));
     box-shadow: .5rem .5rem 1rem rgb(0 0 0 / .5);
     transition: bottom 1s ease-out;
     &::first-letter { text-transform: capitalize; }
   }
   &:focus-within {
-    outline: solid var(--accent-color, rgb(0, 120, 215)) .125rem;
+    outline: solid var(--accent-color, rgb(0 120 215)) .125rem;
     &.error, &:has( input:user-invalid ) {
-      outline-color: var(--error-color, red);
+      outline-color: var(--error-color, rgb(255 0 0));
       > .hint { bottom: 0; }
       &[title]::before { /** error (title) dialogue **/
         content: attr(title);
@@ -256,8 +256,8 @@ textarea {
         font-size: .8rem; 
         text-wrap: pretty;
         border-radius: .25rem;
-        color:var(--error-contrast, white);
-        background-color: var(--error-color, red);
+        color:var(--error-contrast-color, rgb(255 255 255));
+        background-color: var(--error-color, rgb(255 0 0));
         box-shadow: .125rem .125rem .5rem rgba(0,0,0,.5);
       } &.required::before { /** error (title) dialogue **/
         right: 0; border-radius: .25rem .25rem 0 .25rem;
@@ -266,14 +266,14 @@ textarea {
         content: 'Required \2731';
         padding-left:  .5rem;
         border-radius: 0 0 .25rem .25rem;
-        background-color: var(--error-color, red);
+        background-color: var(--error-color, rgb(255 0 0));
         box-shadow: .125rem .28rem .125rem -.125rem rgba(0,0,0,.5);
       }
       > input {
-        background-color: var(--error-contrast, white);
+        background-color: var(--error-contrast-color, rgb(255 255 255));
         &::selection {
           color: var(--error-contrast, white);
-          background-color: var(--error-color, red);
+          background-color: var(--error-color, rgb(255 0 0));
         }
       }
     }
@@ -341,8 +341,8 @@ fieldset.toolbar {
 .field.file:focus-within > label:first-child,
 .field.file:has( input:user-invalid ) > label:first-child {
   top: 0; right: 0; bottom: 0; left: 0;
-  color: var(--text-color);
-  background-color: rgba(255,255,255,.5);
+  color: var(--text-color, rgb(10 10 10));
+  background-color: rgba(255 255 255 / .5);
   font-size: .7rem;
   line-height: 1rem;
   padding: .1rem .25rem 3rem;
@@ -353,7 +353,7 @@ fieldset.toolbar {
 } .field.file.bad > label:first-child {
   font-weight: bold;
   background-color: white;
-  color: var(--error-primary-color);
+  color: var(--error-color, rgb(255 0 0));
 } /** EVENT MESSAGES: before label **/
   .field.file > label::before { content: attr(data-message-ready) ' ';
 } .field.file.active > label::before { content:  attr(data-message-active) ' ';
@@ -367,8 +367,8 @@ fieldset.toolbar {
   font-weight: normal;
   text-align: center; line-height: 3rem;
   cursor: pointer;
-  color: var(--primary-contrast-color);
-  background-color: var(--primary-color);
+  color: var(--primary-contrast-color, rgb(10 10 10));
+  background-color: var(--primary-color, rgb(190 190 190));
   border-style: solid; border-width: .1rem;
   border-color: rgba(255,255,255,.5) rgba(0,0,0,.25) rgba(0,0,0,.25) rgba(255,255,255,.5);
   left: -.1rem;
@@ -376,9 +376,9 @@ fieldset.toolbar {
   font-size: 1.25rem;
 } .field.file.error > label::after,
   .field.file.bad > label::after{
-  color: var(--error-contrast, white);
-  background-color: var(--error-color, red);
-} .field.file:has( input:user-invalid ) > label:first-child::after { background-color: var(--error-primary-color)
+  color: var(--error-contrast-color, rgb(255 255 255));
+  background-color: var(--error-color, rgb(255 0 0));
+} .field.file:has( input:user-invalid ) > label:first-child::after { background-color: var(--error-color)
 } /** .field.file::after (required) **
 .field.file.required::after,
 .field.file.required.error::after { color: white; }

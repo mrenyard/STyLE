@@ -34,9 +34,12 @@
 <?php include("inc/inline-css.php"); ?>
   </head>
   <body id="SITE_ID">
-<?php include("inc/doc-header.php"); ?>
+<?php
+  $dynamicMod = '<label id="dynamic-mod">Verification indicator toggle:&nbsp;<input id="stop-animation" name="stop-animation" tabindex="1" type="checkbox" checked></label>';
+  include("inc/doc-header.php");
+ ?>
     <main id="main"><form action="#main" method="post">
-      <h1>Error form controls (.field, .file)</h1>
+      <h1>Error Form Controls (.field, .file)</h1>
 <?php $_GET['state'] = 'error'; include("inc/field-inputs.php"); ?>
 <?php $_GET['state'] = 'error'; include("inc/file-inputs.php"); ?>
     </form></main>

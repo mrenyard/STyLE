@@ -16,12 +16,12 @@
   text-align: center; line-height: 2.5rem;
   overflow: clip;
   color: var(--secondary-contrast);
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-color, rgb(190 190 220));
   > h2 {
     margin: 0 0 .5rem;
     width: 2.5rem; height: 2.5rem;
     text-indent: 2.5rem; overflow: clip;
-    color: var(--accent-contrast, white); background-color: var(--accent-color, rgb(0, 120, 215));
+    color: var(--accent-contrast-color, rgb(255 255 255)); background-color: var(--accent-color, rgb(0 120 215));
     mask: var(--icon-x16-menu) center center / 1.75rem no-repeat;
   }
   &:focus, &:focus-within, &:hover {

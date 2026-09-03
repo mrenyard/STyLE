@@ -37,8 +37,8 @@
   }
 }
 
-.no-js #stop-animation { display: none;
-} .js #stop-animation {
+.no-js #dynamic-mod { display: none;
+} .js #dynamic-mod {
   position:absolute; bottom: .75rem; right: .75rem;
 }
 .js body:has( #stop-animation:checked ) fieldset .field .ind {
@@ -47,22 +47,58 @@
 
 body > header:first-child {
   position: fixed; z-index: 500;
-  top: 0; right: 0; left: 0;
-  padding: 1rem 1.25rem .5rem;
-  padding: 1rem calc(var(--inline-padding, .25rem) + .25rem) .5rem;
+  top: 0; right: 0; left: 0; height: 4.25rem;
+  padding: 0 var(--inline-padding, .25rem) .25rem;
+  text-align: right;
   color: white !important; background-color: black !important;
-  a { color: white !important; background-color: transparent !important; }
-  + * { margin-top: 2rem !important; }
+  a { color: white !important; background-color: transparent !important;
+  &[rel="home"] { position: absolute; top: 1rem; left: var(--inline-padding, .25rem); }}
+  + * { margin-top: 3.5rem !important; }
 } body:has( > header:first-child ) { padding-top: 2rem; }
 
-#main > form > h1 {
+main > form > h1 {
   padding: 1rem .25rem; overflow: hidden;
   text-wrap: nowrap; text-overflow: ellipsis;
 }
-
-#main + footer {
+main + footer {
   position: relative; height: 7rem;
-  background-color: var(--primary-color, rgb(190,190,190));
+  background-color: var(--primary-color, rgb(190 190 190));
   > a[href='#top'] { position: absolute; bottom: 1rem; right: 1rem; }
 }
+
+main.gallery:not( :has(form:only-child) ),
+main.gallery > form:only-child {
+  display: grid; gap: 1rem;
+  margin: 0; padding: 0;
+  > * {
+    width: auto;
+    margin: 0; padding: 1rem;
+    align-items: center;
+  }
+  > h1 {
+    padding-right: 0; align-self: end;
+    text-wrap: revert; text-transform: uppercase;
+  }
+  > figure {
+    display: flex; flex-direction: column;
+    background-color: rgb(0 0 0 / .25);
+    border-radius: 1rem;
+      > img {
+      width: 2rem; max-width: 100%;
+      height: 9rem; margin-bottom: -2em;
+      background-color: transparent;
+    }
+  }
+} @media screen and (min-width: 18rem) { /**288px**/
+  main.gallery:not( :has(form:only-child) ),
+  main.gallery > form:only-child {
+    grid-template-columns: repeat(auto-fit, 47%);
+  }  
+} @media screen and (min-width: 26rem) { /**416px**/
+  main.gallery:not( :has(form:only-child) ),
+  main.gallery > form:only-child {
+    grid-template-columns: repeat(auto-fit, 12rem);
+  }
+}
+
     </style>

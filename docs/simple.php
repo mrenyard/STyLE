@@ -34,7 +34,10 @@
 <?php include("inc/inline-css.php"); ?>
   </head>
   <body id="SITE_ID">
-<?php include("inc/doc-header.php"); ?>
+<?php
+  $dynamicMod = '<input id="stop-animation" name="stop-animation" tabindex="1" type="checkbox" checked>';
+  include("inc/doc-header.php");
+ ?>
 <?php $_GET['hero'] = 'false'; include("inc/main-content.php"); ?>
 <?php $_GET['open'] = 'true'; include("inc/dialog.php"); ?>
 <?php include("inc/scripts.php"); ?>

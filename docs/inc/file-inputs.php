@@ -28,6 +28,7 @@ switch ($_GET['state']) {
     $buttonTxt = 'Upload';
     break;
   case 'verified':
+    $class = ' verified';
   case 'existing':
     $buttonTxt = 'Update';
     break;
@@ -88,3 +89,12 @@ switch ($_GET['state']) {
 <?php } ?>
         </fieldset>
       </fieldset>
+      <script defer>
+var fileUploaders = document.getElementsByClassName('file');
+for (let i=0, j=fileUploaders.length; i < j; i++) { let o = fileUploaders[i];
+  o.addEventListener('change', (e) => {
+    let t = e.target; t.parentElement.classList.add('verifying');
+    let l = t.labels[0]; l.textContent = l.dataset.buttonUploading;
+  });
+}
+      </script>

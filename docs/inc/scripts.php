@@ -24,37 +24,65 @@
  */
 ?>
     <script>
-if (document.location.search.includes('import=')) {
-  let importIndex = document.location.search.indexOf('import=') + 7;
-  let importEnd = document.location.search.indexOf('&', importIndex) > -1 ? document.location.search.indexOf('&', importIndex) : document.location.search.length;
-  let importNames = document.location.search.substring(importIndex, importEnd).split('|');
-  importNames.forEach(function(importName) {
-    if (importName.indexOf('state-') > -1) { document.documentElement.setAttribute('class', 'js'); }
-    var checkbox = document.querySelector('input[value="'+ importName +'"]');
-    if (checkbox) { checkbox.checked = true;}
+
+addStyleSheet = function(type, name) {
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = '../' + type + '/' + name + '.css';
+  document.head.appendChild(link);
+};
+
+var currentQuery = document.location.search;
+if (currentQuery !== '') {
+  var search = document.location.search.substring(1).split('&');
+  search.forEach(function(param) {
+    let paramName = param.split('=')[0];
+    let paramValue = param.split('=')[1];
+    if (paramName === 'import') {
+      var importNames = paramValue.split('|');
+      importNames.forEach(function(importName) {
+        if (importName.indexOf('state-') >= 0) { document.documentElement.setAttribute('class', 'js'); }
+        var checkbox = document.querySelector('input[value="'+ importName +'"]');
+        if (checkbox) { checkbox.checked = true;}
+      });
+    } else if (paramName === 'scratch') {
+    paramValue.replace('scratch=wireframe', '');
+    if (paramValue.indexOf('wireframe') >= 0) {
+        paramValue = (paramValue.indexOf('|wireframe') >= 0) ? paramValue.replace('|wireframe', '') : paramValue.replace('wireframe', '');
+        document.querySelector('input[name="wireframe"]').checked = true;
+      }
+      document.querySelector('input[name="scratch"]').value = paramValue;
+    }
   });
 }
-var checkboxes = document.getElementById('css-import').querySelectorAll('input[type="checkbox"]');
-checkboxes.forEach(function(checkbox) {
-  if (checkbox.checked) {
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = '../' + checkbox.name + '/' + checkbox.value + '.css';
-    document.head.appendChild(link);
-    if (link.href.toString().indexOf('state-') >= 0) {
-      document.documentElement.classList.replace('no-js', 'js');
-    }
+
+var form = document.forms[document.forms.length - 1];
+Array.from(form.elements).forEach((i) => {
+  if (i.name === 'import' && i.checked) {
+    addStyleSheet(i.name, i.value);
+  } else if (i.name === 'scratch' && i.value.length > 0) {
+    i.value.split('|').forEach(function(scratchName) {
+      if (scratchName.length > 0) {
+        addStyleSheet('scratch', scratchName);
+      }
+    });
+    
+  } else if (i.name === 'wireframe' && i.checked) {
+    addStyleSheet('scratch', 'wireframe');
   }
 });
-document.getElementById('css-import').addEventListener('change', function() {
-  var checked = [];
-  checkboxes.forEach(function(checkbox) {
-    if (checkbox.checked) { checked.push(checkbox.value);}
+
+form.addEventListener('change', function() {
+  var importList = [], scratch = '', wireframe = false;
+  Array.from(form.elements).forEach((i) => {
+    if (i.name === 'import' && i.checked) { importList.push(i.value);}
+    if (i.name === 'scratch' && i.value.length > 0) { scratch = i.value; }
+    if (i.name === 'wireframe' && i.checked) { wireframe = true; }
   });
-  var search = checked.length > 0 ? '?import=' + checked.join('|') : '';
-  document.location.search = search;
+  var newQuery = (importList.length > 0) ? '?import=' + importList.join('|') : '';
+  if (scratch !== '') { newQuery += (newQuery.includes('?import=')) ? '&scratch=' + scratch : '?scratch=' + scratch; }
+  if (wireframe === true) { newQuery += (newQuery.includes('&scratch=')) ? '|wireframe' : '&scratch=wireframe'; }
+  document.location.search = newQuery;
 });
-if (modal != null) {
-  if (modal.open == true) { modal.open = false; modal.showModal(); }
-}
+
   </script>

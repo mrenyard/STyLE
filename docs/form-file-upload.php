@@ -34,7 +34,10 @@
 <?php include("inc/inline-css.php"); ?>
   </head>
   <body id="SITE_ID">
-<?php include("inc/doc-header.php"); ?>
+<?php
+  $dynamicMod = '<input id="stop-animation" name="stop-animation" tabindex="1" type="checkbox" checked>';
+  include("inc/doc-header.php");
+ ?>
     <main id="main"><form action="#main" method="post">
       <h1>File Upload Form Elements</h1>
 <?php $_GET['state'] = 'new'; include("inc/file-inputs.php"); ?>

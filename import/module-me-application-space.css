@@ -58,24 +58,24 @@ body.me-page > #me:target {
     width: 2.5rem; height: 2.5rem;
     text-indent: 9rem; overflow: clip;
     text-align: center; line-height: 2.5rem;
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color, rgb(190 190 220));
     transition: width 1s ease-out, right 1s ease-out, top 1s ease-out;
     cursor: pointer;
     abbr {
       position: absolute;
-      color: var(--accent-color, rgb(0, 120, 215)); background-color: currentColor;
+      color: var(--accent-color, rgb(0 120 215)); background-color: currentColor;
       &.fn {
         top: .25rem; right: 2.5rem;
         width: 2.625rem; height: 2rem;
         border-radius: 50%;
         font-size: .75rem; font-weight: bold;
         text-indent: 0; line-height: 2rem;
-        color: var(--secondary-color, rgb(200, 200, 200)); background-color: var(--accent-color, white);
+        color: var(--secondary-color, rgb(190 190 220)); background-color: var(--accent-color, white);
       }
       &[title="My Environment"] {
         top: 0; right: .04rem; width: 2.5rem; height: 2.5rem;
         mask: var(--icon-x48-person-portrait) center center / 1.5rem no-repeat;
-        color: var(--accent-color, rgb(0, 120, 215)); background-color: currentColor;
+        color: var(--accent-color, rgb(0 120 215)); background-color: currentColor;
       }
     }
   }

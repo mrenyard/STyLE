@@ -13,7 +13,7 @@
 
 :root { 
   scroll-behavior: smooth;
-  accent-color: var(--accent-color, rgb(0, 120, 215));
+  accent-color: var(--accent-color, rgb(0 120 215));
 } :root, *, *::before, *::after { box-sizing: border-box; }
 html { position: relative; overflow-x: hidden; scrollbar-gutter: stable; }
 
@@ -27,8 +27,8 @@ html { position: relative; overflow-x: hidden; scrollbar-gutter: stable; }
 ::-webkit-datetime-edit-week-field:focus,
 ::-webkit-datetime-edit-year-field:focus,
 ::-webkit-datetime-edit-text:focus {
-  color: var(--accent-contrast, white);
-  background-color: var(--accent-color, rgb(0, 120, 215));
+  color: var(--accent-contrast-color, rgb(255 255 255));
+  background-color: var(--accent-color, rgb(0 120 215));
 }
 ::-moz-color-swatch { border: none 0;
 } ::-webkit-color-swatch { border: none 0; }
@@ -47,7 +47,7 @@ body {
   body { margin: 0 auto; }
 }
 
-:any-link { color: var(--accent-color, rgb(0, 120, 215));
+:any-link { color: var(--accent-color, rgb(0 120 215));
 } p > :any-link { hyphens: none;
 } p a[href] { text-decoration: underline;
 } a[href*="//"]::after {
@@ -58,7 +58,7 @@ body {
   mask: var(--icon-x12-external) top center / .75rem no-repeat;
 } a:focus :any-link:focus, p > :any-link:focus,
 a:hover :any-link:hover, p > :any-link:hover {
-  color: var(--active-accent, rgb(0, 60, 255));
+  color: var(--active-accent-color, rgb(0 60 255));
 } a:target { background-color: var(--highlight-color, yellow); }
 
 /** footnote referance **/
@@ -75,7 +75,7 @@ body > * a[id*="fn-ref:"] {
     vertical-align: super;
     font-size: .6em;
     margin-left: 2px;
-    color: var(--accent-color, rgb(0, 120, 215));;
+    color: var(--accent-color, rgb(0 120 215));;
     text-decoration: underline;
     cursor: pointer;
   }
@@ -104,12 +104,16 @@ p, h1, h2, h3, h4, h5, h6 {
   letter-spacing: .05em;
   text-wrap: balance;
   line-height: 110%;
+} header > h1:first-child { margin-top: .25rem;
+} @media screen and (min-width: 35rem) {
+  header > h1:first-child { margin-top: 1rem; }
 } p {
   text-wrap: pretty; margin-bottom: .75rem;
   &:last-child, &:has( + footer ) { margin-bottom: .25rem; }
 } img + p { margin-top: .75rem;
 } header > p { font-weight: bold;
-}
+} body > header > form > p { max-width: 100%; } 
+body > header > form > p:has( + p ) { margin-bottom: 0; }
 /* form > header > p { font-weight: normal; }
 form > header h2:has( + p ) { display: inline-block; }
 form > header h2 + p { display: inline; }
@@ -118,17 +122,22 @@ form > header h2 + p::before { content: " - "; } */
 abbr { text-transform: none; }
 
 dialog {
-  position: fixed;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  width: 80vw; max-width: 40rem;
-  padding: var(--inline-spacing, 1rem);
+  position: fixed; z-index: 1000;
+  top: var(--inline-padding, .25rem); right: var(--inline-padding, .25rem);
+  bottom: var(--inline-padding, .25rem); left: var(--inline-padding, .25rem);
+  max-width: auto; max-height: calc(100vh - (var(--inline-padding, .25rem) *2));
+  padding: var(--inline-spacing, .5rem);
+  overflow: scroll;
   border-radius: var(--border-radius, .5rem);
   background-color: rgb(255 255 255);
   box-shadow: .5rem .5rem 1rem rgb(0 0 0 / .5);
-}
-dialog::backdrop { background-color: rgb(0 0 0 / .33); }
+} @media screen and (min-width: 46.875rem) { /**750px**/
+  dialog {
+    top: 50%; right: auto; bottom: auto; left: 50%;
+    width: 80vw; max-width: 40rem;
+    transform: translate(-50%, -50%);
+  }
+} dialog::backdrop { background-color: rgb(0 0 0 / .33); }
 
 img, picture, video, canvas, svg {
   vertical-align: middle;
@@ -154,9 +163,10 @@ blockquote {
 }
 
 input, button, textarea, select { font: inherit; }
-input, textarea { caret-color: var(--accent-color, rgb(0, 120, 215)); }
+input, textarea { caret-color: var(--accent-color, rgb(0 120 215)); }
 fieldset {
-  padding: .25rem .25rem 0; border: none 0;
+  padding: .25rem var(--inline-padding, .25rem) .25rem;
+  border: none 0;
   > legend:first-child {
     float: left;
     height: 1.7rem;
@@ -184,7 +194,7 @@ label:has( + input[type="file"] ) {
   }
 } label:has( + input[type="file"]:focus ) {
   background-color: #d5d5d5; border-color: #666666;
-  outline: solid var(--active-accent, rgb(0, 60, 255)) .0625rem;
+  outline: solid var(--active-accent-color, rgb(0 60 255)) .0625rem;
 }
 label + input[type="file"] {
   float: right;
@@ -226,8 +236,8 @@ main > form:only-child > a:first-child {
 }
 
 ::selection  {
-  color: var(--accent-contrast, white);
-  background-color: var(--accent-color, rgb(0, 120, 215));
+  color: var(--accent-contrast-color, rgb(255 255 255));
+  background-color: var(--accent-color, rgb(0 120 215));
 }
 
 .field, .file { padding: .25rem 0; }

@@ -22,9 +22,9 @@
  * @package STyLE
  * @version 0.0.9;
  */
-$red = (isset($_POST['red'])) ? $_POST['red'] : 255;
-$green = (isset($_POST['green'])) ? $_POST['green'] : 255;
-$blue = (isset($_POST['blue'])) ? $_POST['blue'] : 255;
+$r = (isset($_POST['r'])) ? $_POST['r'] : 255;
+$g = (isset($_POST['g'])) ? $_POST['g'] : 255;
+$b = (isset($_POST['b'])) ? $_POST['b'] : 255;
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -33,41 +33,21 @@ $blue = (isset($_POST['blue'])) ? $_POST['blue'] : 255;
     <title>STyLE Icon Set (default)</title>
     <meta name="description" content="Available icons for the STyLE CSS Framework.">
     <meta name="viewport" content="width=device-width,initial-scale=1,interactive-widget=resizes-content">
+    <link rel="stylesheet" href="../import/base.css">
     <link rel="stylesheet" href="../import/icons.css.php">
-    <style>
-main header > h1 { margin-left: 1.25rem; }
-.gallery {
-  display: grid; gap: 2rem;
-    max-width: 100%;
-  > header, > footer { grid-column: 1 / span all; grid-row: auto;}
-  > figure {
-    margin: 1rem; padding: 0 0 1rem;
-    width: 12rem; height: 100%;
-    align-items: center;
-    display: flex; flex-direction: column;
-    background-color: rgb(0 0 0 / .25);
-    border-radius: 1rem;
-    > img {
-      width: 2rem; max-width: 100%;
-      height: 9rem; margin-bottom: -2em;
-      background-color: transparent;
-    }
-  }
-} @media screen and (min-width: 30rem) {
-  .gallery {
-    max-width: calc(100% - 15rem);
-    grid-columns: main-left / span 2;
-    grid-template-columns: repeat(auto-fit, 12rem);
-  }
-}
-    </style>
+<?php include("inc/inline-css.php"); ?>
   </head>
   <body id="SITE_ID">
-<?php include("inc/doc-header.php"); ?>
-    <main id="main"><form action="#main" method="post" class="gallery">
-      <header>
-        <h1>Full Dymanic ICON Set (icon-*)</h1>
-      </header>
+<?php
+$dynamicMod = '<form id="icon:color" method="post">
+        <p>Set&nbsp;RGB&nbsp;icon&nbsp;color:</p>
+        <p><input type="number" name="r" min="0" max="255" size="2"><input type="number" name="g" min="0" max="255" size="2"><input type="number" name="b" min="0" max="255" size="2"><input type="submit" value="Set"/></p>
+      </form>
+';
+include("inc/doc-header.php");
+?>
+    <main id="main" class="gallery"><form action="#main" method="post">
+      <h1>Full Dymanic Icon Set</h1>
 <?php
 $dir =  '../img/dynamic/';
 chdir($dir);
@@ -78,16 +58,10 @@ if(is_array($matches) && !empty($matches)){
     $fileName = \str_replace('icon-', '', $file);
 ?>
       <figure class="icon" id="<?=$file; ?>">
-        <img src="../img/svg.php/<?=$file; ?>/<?=$red; ?>,<?=$green; ?>,<?=$blue; ?>/2">
-        <figcaption><a href="../img/svg.php/<?=$file; ?>/<?=$red; ?>,<?=$green; ?>,<?=$blue; ?>/5"><?=$fileName; ?></a></figcaption>
+        <img src="../img/svg.php/<?=$file; ?>/<?=$r; ?>,<?=$g; ?>,<?=$b; ?>/2">
+        <figcaption><a href="../img/svg.php/<?=$file; ?>/<?=($r == 255 && $g == 255 && $b == 255) ? '0,0,0' : $r.','.$g.','.$b; ?>/50"><?=$fileName; ?></a></figcaption>
       </figure>
 <?php }} ?>
-    <footer>
-        <menu>
-          <li><input type="number" name="red" min="0" max="255" size="4">&nbsp;<input type="number" name="green" min="0" max="255" size="4">&nbsp;<input type="number" name="blue" min="0" max="255" size="4"></li>
-          <li><input type="submit" value="Set preffered RGB icon color"></li>
-        </menu>
-      </footer>
     </form></main>
   </body>
 </html>

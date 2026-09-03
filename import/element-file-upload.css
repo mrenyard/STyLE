@@ -19,9 +19,8 @@ fieldset:has( .file ) > legend {
   margin: .0625rem -.125rem .0625rem 0;
   padding: 0;
   vertical-align: bottom;
-  background-color: var(--primary-color, rgb(190,190,190));
-  outline-color: var(--active-accent, rgb(0, 60, 255));
-  transition: all .2s ease-in-out;
+  background-color: var(--primary-color, rgb(190 190 190));
+  outline-color: var(--active-accent-color, rgb(0 60 255));
   top: 0; height: 3rem;
   > legend:first-child {
     display: block; z-index: 1;
@@ -29,8 +28,7 @@ fieldset:has( .file ) > legend {
     top: 0; right: 0; left: 0;
     cursor: default;
     background-color: white;
-    transition: all .2s ease-in-out;
-    height: 3rem;
+    height: 100%;
     &:has( + .preview-link ) {
       height: 1rem;
       font-size: .75rem;
@@ -47,17 +45,17 @@ fieldset:has( .file ) > legend {
     position: absolute;
     bottom: 0; left: 0;
     padding-inline: 2.25rem 0;
-    width: 100%; height: 2rem;
-    line-height: 1.75rem;
+    width: 100%; height: 100%;
+    line-height: 3.75rem;
     text-align: center;
     overflow: hidden;
     direction: rtl;
     text-overflow: ellipsis;
     text-wrap: nowrap;
-    color: var(--accent-color, rgb(0, 120, 215));
+    color: var(--accent-color, rgb(0 120 215));
     background-color: rgb(255 255 255 / .5);
     outline: none;
-    &:focus { color: var(--active-accent, rgb(0, 60, 255)); }
+    &:focus { color: var(--active-accent-color, rgb(0 60 255)); }
   }
   > label[for] {
     position: absolute;
@@ -68,7 +66,7 @@ fieldset:has( .file ) > legend {
     &::selection { color: inherit; background-color: inherit; }
   }
   &:focus-within {
-    outline: solid var(--active-accent, rgb(0, 60, 255)) .125rem;
+    outline: solid var(--active-accent-color, rgb(0 60 255)) .125rem;
   }
   /** required (asterix) **/
   &.required {
@@ -83,38 +81,21 @@ fieldset:has( .file ) > legend {
     }
   }
   /** .hint (OFF PAGE) **/
-  > .hint {
-    display: none;
-    /* position: fixed; z-index: 100;
-    right: var(--popup-right, 3rem);
-    bottom: -33%; left: 0;
-    height: fit-content; max-height: 33%;
-    width: fit-content; max-width: 40em;
-    text-wrap: pretty;
-    line-height: 1.375rem;
-    overflow-y: auto;
-    padding: var(--inline-spacing, 1rem);
-    background-color: var(--complementary-canvas, white);
-    border: solid;
-    border-width: .75rem .75rem 0 0;
-    border-color: var(--error-color, red);
-    box-shadow: .5rem .5rem 1rem rgb(0 0 0 / .5);
-    transition: bottom 1s ease-out; */
-  }
+  > .hint { display: none; }
   /** ACTIVE **/
-  &:has( > input:open ),
   &.verifying, &.error,
+  &:has( > input:open ):not( :has( > .preview-link) ),
   &:focus-within:not( :has( > .preview-link) ) {
-    z-index: 4;
+    z-index: 3;
     margin-top: -1rem;
     height: 4rem;
     border-radius: .33rem .33rem 0 0;
     box-shadow: rgb(0 0 0 / .25) .1rem -.1rem .3rem;
     > legend {
-      height: 4rem;
       font-size: .75rem;
       line-height: 1.125rem;
       padding-inline: .25rem;
+      border-radius: .33rem .33rem 0 0;
       background-color: rgb(255 255 255 / .5);
     }
     > label[for] {
@@ -124,9 +105,19 @@ fieldset:has( .file ) > legend {
       text-indent: 0; /*2rem;*/
     }
   }
+  &:focus-within:not( .error, :has( > .preview-link) ) {
+    transition:
+      margin-top .2s linear,
+      height .2s linear;
+      > legend { transition: all .2s ease-in-out; }
+      > label[for] { animation: outFadeIn .4s linear forwards; }
+  }
   &:not(.error):has( > input:open ) > legend::before {
     content: attr(data-label-active) ' ';
   }  
+} @keyframes fade-in {
+  from { background-color: var(--highlight-color, yellow);; }
+  to { background-color: var(--post-highlight-color); }
 }
 
 /** .file **
@@ -258,7 +249,7 @@ fieldset:has( .file ) > legend {
   }
   /** Outline on BUTTON **//*
   &:focus-within > label::after {
-    outline: solid var(--active-accent, rgb(215, 0, 215)) .125rem;
+    outline: solid var(--active-accent-color, rgb(0 60 255)) .125rem;
   }
   /** Error colour changes **//*
   &.error{

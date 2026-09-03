@@ -23,7 +23,7 @@
  * @version 0.0.9;
  */
 ?>
-      <header id="top">
-        <input id="stop-animation" name="stop-animation" tabindex="1" type="checkbox" checked>
-        <a href="/docs">HOME</a> 
-      </header>
+    <header id="top">
+      <a tabindex="-1" href="/docs" rel="home">HOME</a> 
+      <?=$dynamicMod; ?>
+    </header>

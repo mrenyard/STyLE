@@ -68,24 +68,7 @@ fieldset:has( .field ) {
     }
     > :is(label:first-child, legend)::after { display: none; }
   }
-  /** .hint (OFF PAGE) **/
-  > .hint {
-    position: fixed; z-index: 100;
-    right: var(--popup-right, 3rem);
-    bottom: -33%; left: 0;
-    height: fit-content; max-height: 33%;
-    width: fit-content; max-width: 40em;
-    text-wrap: pretty;
-    line-height: 1.375rem;
-    overflow-y: auto;
-    padding: var(--inline-spacing, 1rem);
-    background-color: var(--complementary-canvas, white);
-    border: solid;
-    border-width: .75rem .75rem 0 0;
-    border-color: var(--error-color, red);
-    box-shadow: .5rem .5rem 1rem rgb(0 0 0 / .5);
-    transition: bottom 1s ease-out;
-  }
+  > .hint { display: none; }
   /** add down arrow to select fields **/
   &.select-many, &:has( select ) { 
     appearance: none;
@@ -114,19 +97,22 @@ fieldset:has( .field ) {
   &.error, &:has( input:user-invalid ) {
     /** error label **/
     > label:first-child, > legend {
-      background-color: var(--error-color, red);
-      color: var(--error-contrast, white);
+      background-color: var(--error-color, rgb(255 0 0));
+      color: var(--error-contrast-color, rgb(255 255 255));
     }    
     /** error asterix **/
     &.required::after { color: white; }
   }
   /** ACTIVE FIELDS **/
   &:focus-within {
-    outline: solid var(--active-accent, rgb(0, 60, 255)) .125rem;
+    outline: solid var(--active-accent-color, rgb(0 60 255)) .125rem;
     /** focus .error **/
+    &.error, &:has( input:user-invalid ) {
+      background-color: var(--error-contrast-color, rgb(255 255 255));
+      outline-color: var(--error-low-color, rgb(255 50 50));
+    }
   }
-}
-.no-js .field > .ind { display: none; }
+} .no-js .field > .ind { display: none; }
 
 .field.meter > label:first-child + meter {
   width: calc(100% - .75rem);

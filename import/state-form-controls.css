@@ -16,7 +16,6 @@
   padding-left: 1.875rem;
   overflow: hidden;
   text-align: center; line-height: 1rem;
-  /* background-color: rgb(255 255 255 / .75); */
   &.verified,
   &.error {
     opacity: 0; z-index: -1;
@@ -32,49 +31,31 @@
     font-size: 1.625rem; line-height: 1.25rem;
     border-radius: 50%;
     border: none 0;
-    background-color: var(--accent-color, rgb(0, 120, 215));
+    background-color: var(--accent-color, rgb(0 120 215));
   }
   &.verifying::before {
-    border: dotted .2rem var(--accent-contrast, white);
+    border: dotted .2rem var(--accent-contrast-color, rgb(255 255 255));
     animation-iteration-count: infinite;
     animation-name: spinAndPulse;
     animation-duration: 1.5s;
   }
   &.verified::before {
     content: '\2713';
-    color: var(--primary-contrast, white);
-    background-color: var(--primary-color, green);
+    color: var(--primary-contrast-color, rgb(10 10 10));
+    background-color: var(--primary-color, rgb(190 190 190));
   }
   &.error::before {
     content: '\2717';
-    color: var(--error-contrast, white); 
-    background-color: var(--error-color, red);  
+    color: var(--error-contrast-color, rgb(255 255 255)); 
+    background-color: var(--error-color, rgb(255 0 0));  
   }
-}
-@keyframes inFadeOut {
-  from { opacity: 1; z-index: 1; }
-  50% { opacity: 1; z-index: 1; }
-  to { opacity: 0; z-index: 1; }
-}
-@keyframes outFadeIn {
-  from { opacity: 0; }
-  50% { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes spinAndPulse {
-  from { transform: scale(1) rotate(0deg); }
-  50% { transform: scale(.5) rotate(180deg); }
-  to { transform: scale(1) rotate(360deg); }
 }
 
 /** .file (active upload) **/
-.js .file.verifying > label:first-child {
+.js .file.verifying > legend:first-child {
   background: linear-gradient(60deg, white, transparent, white, transparent, white);
   background-size: 200% 100%;
   animation: bgSwipe 1s linear infinite;
-} @keyframes bgSwipe {
-  0% { background-position: 100% 100%; }
-  100% { background-position: 0% 0%; }
 }
 
 /** .js .field.range (value indivator) **/
@@ -135,8 +116,8 @@
     width: 12rem;
     background: linear-gradient(
       to right,
-      rgb(255, 215, 0) 0%,
-      rgb(255, 215, 0) var(--split),
+      rgb(255 215 0) 0%,
+      rgb(255 215 0) var(--split),
       rgb(255 255 255 / .5) var(--split),
       rgb(255 255 255 / .5) 100%
     );
@@ -164,7 +145,6 @@
     animation: none;
   }
 }
-
 
 /* fieldset.toolbar {
 } fieldset.toolbar:focus-within {

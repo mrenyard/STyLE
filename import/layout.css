@@ -149,7 +149,7 @@ body:not( .index-page ):has( aside ) {
 h1, header { margin-bottom: calc(var(--block-spacing)/2);
 } body > header { margin-bottom: 0;
   height: var(--header-height);
-  background-color: var(--primary-color);
+  background-color: var(--primary-color, rgb(190 190 190));
 }
 /* footer { margin-top: calc(var(--block-spacing)/2); } */
 
@@ -157,7 +157,7 @@ article { margin-bottom: var(--block-spacing);
 } body > article { 
   padding-inline: var(--inline-spacing);
   margin-inline: calc(var(--inline-spacing)*-1);
-  --post-highlight-color: var(--primary-color);
+  --post-highlight-color: var(--primary-color, rgb(190 190 190));
   background-color: var(--post-highlight-color);
 } main + article {
   margin-top: var(--linline-spacing);
@@ -184,7 +184,7 @@ article { margin-bottom: var(--block-spacing);
 body > main {
   position: relative;
   padding-bottom: 2rem;
-  color: var(--text-color, black);
+  color: var(--text-color, rgb(10 10 10));
   --post-highlight-color: var(--complementary-canvas, white);
   background-color: var(--post-highlight-color);
   &::before, &::after {
